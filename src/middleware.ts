@@ -1,10 +1,6 @@
-import {
-  NextResponse,
-  type NextRequest,
-  type NextFetchEvent,
-} from 'next/server';
+import { NextResponse, type NextRequest } from 'next/server';
 
-export const middleware = async (req: NextRequest, ev: NextFetchEvent) => {
+export const middleware = async (req: NextRequest) => {
   const slug = req.nextUrl.pathname.split('/').pop();
   const slugFetch = await fetch(`${req.nextUrl.origin}/api/get-url/${slug}`);
 
@@ -17,4 +13,3 @@ export const middleware = async (req: NextRequest, ev: NextFetchEvent) => {
 };
 
 export const config = { matcher: ['/((?!api|_next/static|favicon.ico).*)'] };
-// export const config = { matcher: ['/:slug'] };
