@@ -3,12 +3,7 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": [
-    "@typescript-eslint",
-    "react",
-    "prettier",
-    "import"
-  ],
+  "plugins": ["@typescript-eslint", "react", "prettier", "import"],
   "extends": [
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
