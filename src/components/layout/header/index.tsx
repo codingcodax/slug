@@ -31,7 +31,7 @@ const Header = () => {
           <Menu.Button className='rounded-md px-3 py-2 hover:bg-mauve-400 focus:outline-none focus-visible:bg-mauve-200 focus-visible:ring-1 focus-visible:ring-mauve-700 focus-visible:ring-offset-2 dark:hover:bg-mauveDark-400 dark:focus-visible:bg-mauveDark-200 dark:focus-visible:ring-mauveDark-700'>
             {session?.user?.username} &darr;
           </Menu.Button>
-          <Menu.Items className='absolute right-0 z-40 mt-2 w-56 origin-top-right rounded-md border border-mauve-600 bg-mauve-200 p-1 shadow-lg focus:outline-none dark:divide-gray-600 dark:border-mauveDark-600 dark:bg-mauveDark-200'>
+          <Menu.Items className='absolute right-0 z-40 mt-2 w-56 origin-top-right rounded-md border border-mauve-600 bg-mauve-200 p-1 shadow-lg focus:outline-none dark:border-mauveDark-600 dark:bg-mauveDark-200'>
             {links.map(({ href, label, isExternal }) => (
               <Menu.Item key={href}>
                 {isExternal ? (
