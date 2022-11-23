@@ -1,8 +1,8 @@
 const Footer = () => {
   return (
-    <div>
-      <p>Footer component</p>
-    </div>
+    <footer>
+      <p>Handcrafted with 💜 and t3-stack by codingcodax</p>
+    </footer>
   );
 };
 
