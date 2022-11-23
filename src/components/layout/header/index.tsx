@@ -1,4 +1,4 @@
-import { useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { Menu } from '@headlessui/react';
 
@@ -52,7 +52,12 @@ const Header = () => {
             ))}
 
             <Menu.Item>
-              <button className={menuItemStyles}>Sign out</button>
+              <button
+                className={menuItemStyles}
+                onClick={() => signOut({ callbackUrl: '/' })}
+              >
+                Sign out
+              </button>
             </Menu.Item>
           </Menu.Items>
         </Menu>
