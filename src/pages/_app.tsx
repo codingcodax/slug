@@ -20,7 +20,9 @@ const MyApp = ({
   return (
     <ThemeProvider attribute='class'>
       <SessionProvider session={session}>
-        <div className={`${inter.variable} font-sans`}>
+        <div
+          className={`${inter.variable} grid min-h-screen grid-rows-[auto_1fr_auto] font-sans`}
+        >
           <Layout>
             <Component {...pageProps} />
           </Layout>
