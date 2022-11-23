@@ -13,7 +13,7 @@ const links = [
 ];
 
 const menuItemStyles =
-  'block w-full rounded px-3 py-2 text-left text-sm text-mauve-1100 transition-colors duration-200 hover:bg-mauve-400 dark:hover:bg-mauveDark-400';
+  'block w-full rounded px-3 py-2 text-left text-sm text-mauve-1100 transition-colors duration-200 hover:bg-mauve-400 dark:hover:bg-mauveDark-400 ui-active:bg-mauve-400 dark:ui-active:bg-mauveDark-400';
 
 const Header = () => {
   const { data: session, status } = useSession();
