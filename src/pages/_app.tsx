@@ -3,8 +3,8 @@ import { type Session } from 'next-auth';
 import { SessionProvider } from 'next-auth/react';
 
 import { trpc } from '~/utils/trpc';
-
 import '~/styles/globals.css';
+import Layout from '~/components/layout';
 
 const MyApp = ({
   Component,
@@ -12,7 +12,9 @@ const MyApp = ({
 }: AppProps<{ session: Session | null }>) => {
   return (
     <SessionProvider session={session}>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </SessionProvider>
   );
 };
