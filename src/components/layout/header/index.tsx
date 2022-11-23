@@ -1,8 +1,13 @@
+import Link from 'next/link';
+
 const Header = () => {
   return (
-    <div>
-      <p>Header component</p>
-    </div>
+    <header>
+      <Link href='/'>Slug</Link>
+
+      <Link href='/login'>Login</Link>
+      <Link href='/sign-up'>Sign up &rarr;</Link>
+    </header>
   );
 };
 
