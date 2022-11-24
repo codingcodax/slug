@@ -2,7 +2,7 @@ import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { Menu } from '@headlessui/react';
 
-import { Icons } from '~/components/ui';
+import { Icons, Skeleton } from '~/components/ui';
 
 const links = [
   { href: '/dashboard/create', label: 'Create new link' },
@@ -36,8 +36,14 @@ const Header = () => {
       ) : (
         <Menu as='div' className='relative inline-block'>
           <Menu.Button className='flex items-center space-x-4 rounded-md px-3 py-2 hover:bg-mauve-400 focus:outline-none focus-visible:bg-mauve-200 focus-visible:ring-1 focus-visible:ring-mauve-600 focus-visible:ring-offset-2 dark:hover:bg-mauveDark-400 dark:focus-visible:bg-mauveDark-200 dark:focus-visible:ring-mauveDark-600'>
-            {session?.user?.username}{' '}
-            <Icons.ChevronDown className='ml-2 h-4 w-4' />
+            {status === 'loading' ? (
+              <Skeleton className='h-6 w-[70px]' />
+            ) : (
+              <>
+                {session?.user?.username}{' '}
+                <Icons.ChevronDown className='ml-2 h-4 w-4' />
+              </>
+            )}
           </Menu.Button>
           <Menu.Items className='absolute right-0 z-40 mt-2 w-56 origin-top-right rounded-md border border-mauve-600 bg-mauve-200 p-1 shadow-lg focus:outline-none dark:border-mauveDark-600 dark:bg-mauveDark-200'>
             {links.map(({ href, label, isExternal }) => (
