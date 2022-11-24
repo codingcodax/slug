@@ -1,5 +1,12 @@
-import { CircleDot, ChevronDown, Github, LayoutList, Plus } from 'lucide-react';
+import {
+  CircleDot,
+  ChevronDown,
+  Github,
+  LayoutList,
+  LogOut,
+  Plus,
+} from 'lucide-react';
 
-const Icons = { CircleDot, ChevronDown, Github, LayoutList, Plus };
+const Icons = { CircleDot, ChevronDown, Github, LayoutList, LogOut, Plus };
 
 export default Icons;
