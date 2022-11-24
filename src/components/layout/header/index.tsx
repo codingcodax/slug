@@ -16,7 +16,7 @@ const links = [
     icon: <Icons.LayoutList className='mr-2 h-4 w-4' />,
   },
   {
-    href: 'https://github.com/codingcodax/slug',
+    href: 'https://github.com/codingcodax/slug/issues',
     label: 'Report a bug',
     icon: <Icons.CircleDot className='mr-2 h-4 w-4' />,
     isExternal: true,
