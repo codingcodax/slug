@@ -12,4 +12,6 @@ export const middleware = async (req: NextRequest) => {
   if (data?.url) return NextResponse.redirect(data.url);
 };
 
-export const config = { matcher: ['/((?!api|_next/static|favicon.ico).*)'] };
+export const config = {
+  matcher: ['/((?!api|_next/static|favicon.ico|dashboard).*)'],
+};
