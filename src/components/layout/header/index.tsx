@@ -5,17 +5,26 @@ import { Menu } from '@headlessui/react';
 import { Icons, Skeleton } from '~/components/ui';
 
 const links = [
-  { href: '/dashboard/create', label: 'Create new link' },
-  { href: '/dashboard', label: 'Dashboard' },
+  {
+    href: '/dashboard/create',
+    label: 'Create new link',
+    icon: <Icons.Plus className='mr-2 h-4 w-4' />,
+  },
+  {
+    href: '/dashboard',
+    label: 'Dashboard',
+    icon: <Icons.LayoutList className='mr-2 h-4 w-4' />,
+  },
   {
     href: 'https://github.com/codingcodax/slug',
     label: 'Report a bug',
+    icon: <Icons.CircleDot className='mr-2 h-4 w-4' />,
     isExternal: true,
   },
 ];
 
 const menuItemStyles =
-  'block w-full rounded px-3 py-2 text-left text-sm text-mauve-1100 dark:text-mauveDark-1100 transition-colors duration-200 hover:bg-mauve-400 dark:hover:bg-mauveDark-400 ui-active:bg-mauve-400 dark:ui-active:bg-mauveDark-400';
+  'flex flex-row items-center block w-full rounded px-3 py-2 text-left text-sm text-mauve-1100 dark:text-mauveDark-1100 transition-colors duration-200 hover:bg-mauve-400 dark:hover:bg-mauveDark-400 ui-active:bg-mauve-400 dark:ui-active:bg-mauveDark-400';
 
 const Header = () => {
   const { data: session, status } = useSession();
@@ -46,7 +55,7 @@ const Header = () => {
             )}
           </Menu.Button>
           <Menu.Items className='absolute right-0 z-40 mt-2 w-56 origin-top-right rounded-md border border-mauve-600 bg-mauve-200 p-1 shadow-lg focus:outline-none dark:border-mauveDark-600 dark:bg-mauveDark-200'>
-            {links.map(({ href, label, isExternal }) => (
+            {links.map(({ href, label, icon, isExternal }) => (
               <Menu.Item key={href}>
                 {isExternal ? (
                   <a
@@ -55,10 +64,12 @@ const Header = () => {
                     rel='noopener noreferrer'
                     target='_blank'
                   >
+                    {icon}
                     {label}
                   </a>
                 ) : (
                   <Link className={menuItemStyles} href={href}>
+                    {icon}
                     {label}
                   </Link>
                 )}
@@ -70,6 +81,7 @@ const Header = () => {
                 className={menuItemStyles}
                 onClick={() => signOut({ callbackUrl: '/' })}
               >
+                <Icons.LogOut className='mr-2 h-4 w-4' />
                 Sign out
               </button>
             </Menu.Item>
