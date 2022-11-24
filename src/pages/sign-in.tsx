@@ -1,6 +1,6 @@
 import { signIn } from 'next-auth/react';
 
-const Login = () => {
+const SignIn = () => {
   return (
     <main className='mx-auto mt-10 flex max-w-6xl flex-col items-center space-y-10'>
       <div className='space-y-2 text-center'>
@@ -19,4 +19,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignIn;
