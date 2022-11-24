@@ -3,8 +3,8 @@ import Link from 'next/link';
 
 const Home: NextPage = () => {
   return (
-    <main className='mx-auto mt-10 flex max-w-6xl flex-col items-center space-y-10 text-center'>
-      <div className='space-y-4'>
+    <main className='mx-auto mt-10 flex max-w-6xl flex-col items-center space-y-10'>
+      <div className='space-y-4 text-center'>
         <p className='text-sm uppercase'>Meet slug</p>
         <h1 className='text-md text-6xl font-medium capitalize'>
           Open source link shortener
