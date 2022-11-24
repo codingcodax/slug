@@ -1,6 +1,19 @@
+import { type GetServerSideProps } from 'next';
 import { signIn } from 'next-auth/react';
 
 import { Icons } from '~/components/ui';
+import { getServerAuthSession } from '~/server/common/get-server-auth-session';
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const session = await getServerAuthSession(ctx);
+
+  if (session)
+    return {
+      redirect: { destination: '/dashboard', permanent: false },
+    };
+
+  return { props: { session } };
+};
 
 const SignIn = () => {
   return (
