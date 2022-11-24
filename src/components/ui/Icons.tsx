@@ -1,5 +1,5 @@
-import { ChevronDown, Github } from 'lucide-react';
+import { ChevronDown, Github, Plus } from 'lucide-react';
 
-const Icons = { ChevronDown, Github };
+const Icons = { ChevronDown, Github, Plus };
 
 export default Icons;
