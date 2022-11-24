@@ -25,7 +25,12 @@ const Header = () => {
       </Link>
 
       {status === 'unauthenticated' ? (
-        <Link href='login'>Sign in</Link>
+        <Link
+          className='rounded-md px-3 py-2 hover:bg-mauve-400 focus:outline-none focus-visible:bg-mauve-200 focus-visible:ring-1 focus-visible:ring-mauve-700 focus-visible:ring-offset-2 dark:hover:bg-mauveDark-400 dark:focus-visible:bg-mauveDark-200 dark:focus-visible:ring-mauveDark-700'
+          href='login'
+        >
+          Sign in &rarr;
+        </Link>
       ) : (
         <Menu as='div' className='relative inline-block'>
           <Menu.Button className='rounded-md px-3 py-2 hover:bg-mauve-400 focus:outline-none focus-visible:bg-mauve-200 focus-visible:ring-1 focus-visible:ring-mauve-700 focus-visible:ring-offset-2 dark:hover:bg-mauveDark-400 dark:focus-visible:bg-mauveDark-200 dark:focus-visible:ring-mauveDark-700'>
