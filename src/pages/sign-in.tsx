@@ -1,5 +1,7 @@
 import { signIn } from 'next-auth/react';
 
+import { Icons } from '~/components/ui';
+
 const SignIn = () => {
   return (
     <main className='mx-auto mt-10 flex max-w-6xl flex-col items-center space-y-10'>
@@ -10,9 +12,10 @@ const SignIn = () => {
         </p>
       </div>
       <button
-        className='rounded-md bg-mauve-1200 px-4 py-2 text-mauve-100 dark:bg-mauveDark-400 dark:text-mauveDark-1200'
+        className='flex items-center rounded-md bg-mauve-1200 px-4 py-2 text-mauve-100 dark:bg-mauveDark-400 dark:text-mauveDark-1200'
         onClick={() => signIn('github', { callbackUrl: '/dashboard' })}
       >
+        <Icons.Github className='mr-2 h-4 w-4' />
         Sign in with GitHub
       </button>
     </main>
