@@ -15,7 +15,7 @@ const links = [
 ];
 
 const menuItemStyles =
-  'block w-full rounded px-3 py-2 text-left text-sm text-mauve-1100 transition-colors duration-200 hover:bg-mauve-400 dark:hover:bg-mauveDark-400 ui-active:bg-mauve-400 dark:ui-active:bg-mauveDark-400';
+  'block w-full rounded px-3 py-2 text-left text-sm text-mauve-1100 dark:text-mauveDark-1100 transition-colors duration-200 hover:bg-mauve-400 dark:hover:bg-mauveDark-400 ui-active:bg-mauve-400 dark:ui-active:bg-mauveDark-400';
 
 const Header = () => {
   const { data: session, status } = useSession();
@@ -28,14 +28,14 @@ const Header = () => {
 
       {status === 'unauthenticated' ? (
         <Link
-          className='rounded-md px-3 py-2 hover:bg-mauve-400 focus:outline-none focus-visible:bg-mauve-200 focus-visible:ring-1 focus-visible:ring-mauve-700 focus-visible:ring-offset-2 dark:hover:bg-mauveDark-400 dark:focus-visible:bg-mauveDark-200 dark:focus-visible:ring-mauveDark-700'
+          className='rounded-md px-3 py-2 hover:bg-mauve-400 focus:outline-none focus-visible:bg-mauve-200 focus-visible:ring-1 focus-visible:ring-mauve-600 focus-visible:ring-offset-2 dark:hover:bg-mauveDark-400 dark:focus-visible:bg-mauveDark-200 dark:focus-visible:ring-mauveDark-600'
           href='login'
         >
           Sign in &rarr;
         </Link>
       ) : (
         <Menu as='div' className='relative inline-block'>
-          <Menu.Button className='flex items-center space-x-4 rounded-md px-3 py-2 hover:bg-mauve-400 focus:outline-none focus-visible:bg-mauve-200 focus-visible:ring-1 focus-visible:ring-mauve-700 focus-visible:ring-offset-2 dark:hover:bg-mauveDark-400 dark:focus-visible:bg-mauveDark-200 dark:focus-visible:ring-mauveDark-700'>
+          <Menu.Button className='flex items-center space-x-4 rounded-md px-3 py-2 hover:bg-mauve-400 focus:outline-none focus-visible:bg-mauve-200 focus-visible:ring-1 focus-visible:ring-mauve-600 focus-visible:ring-offset-2 dark:hover:bg-mauveDark-400 dark:focus-visible:bg-mauveDark-200 dark:focus-visible:ring-mauveDark-600'>
             {session?.user?.username}{' '}
             <Icons.ChevronDown className='ml-2 h-4 w-4' />
           </Menu.Button>
