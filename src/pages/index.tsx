@@ -17,7 +17,7 @@ const Home: NextPage = () => {
       <div className='space-x-4'>
         <Link
           className='inline-block rounded-md bg-mauve-1200 py-2 px-4 text-mauve-100 hover:bg-mauve-1200/90 dark:bg-mauveDark-1200 dark:text-mauveDark-100 dark:hover:bg-mauveDark-1200/90'
-          href='/login'
+          href='/sign-in'
         >
           Get Started &rarr;
         </Link>
