@@ -49,13 +49,35 @@ LinkItem.Description = ({ children }: LinkItemDescriptionProps) => {
   return <p className='mt-2'>{children || 'No description'}</p>;
 };
 
+interface LinkItemSkeletonProps {
+  variant?: 1 | 2;
+}
+
 // eslint-disable-next-line react/display-name
-LinkItem.Skeleton = () => {
+LinkItem.Skeleton = ({ variant }: LinkItemSkeletonProps) => {
+  if (variant === 1)
+    return (
+      <li className='rounded-md border border-mauve-600 p-4 dark:border-mauveDark-600'>
+        <Skeleton className='h-6 bg-mauve-500 dark:bg-mauveDark-500' />
+        <Skeleton className='mt-2 h-5 w-3/5 bg-mauve-300 dark:bg-mauveDark-300' />
+        <Skeleton className='mt-3 h-5 w-full' />
+      </li>
+    );
+
+  if (variant === 2)
+    return (
+      <li className='rounded-md border border-mauve-600 p-4 dark:border-mauveDark-600'>
+        <Skeleton className='h-6 bg-mauve-500 dark:bg-mauveDark-500' />
+        <Skeleton className='mt-2 h-5 w-1/2 bg-mauve-300 dark:bg-mauveDark-300' />
+        <Skeleton className='mt-3 h-5 w-3/5' />
+      </li>
+    );
+
   return (
     <li className='rounded-md border border-mauve-600 p-4 dark:border-mauveDark-600'>
-      <Skeleton className='h-6 bg-mauve-500 dark:bg-mauveDark-500' />
-      <Skeleton className='mt-2 h-5 w-3/5 bg-mauve-300 dark:bg-mauveDark-300' />
-      <Skeleton className='mt-3 h-5 w-full' />
+      <Skeleton className='h-6 w-1/4 bg-mauve-500 dark:bg-mauveDark-500' />
+      <Skeleton className='mt-2 h-5 w-1/2 bg-mauve-300 dark:bg-mauveDark-300' />
+      <Skeleton className='mt-3 h-5 w-1/3' />
     </li>
   );
 };
