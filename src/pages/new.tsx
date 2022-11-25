@@ -14,6 +14,7 @@ const New = () => {
   const {
     handleSubmit,
     register,
+    setError,
     formState: { errors },
   } = useForm<CreateLink>();
   const [isLoading, setIsLoading] = useState(false);
@@ -25,6 +26,11 @@ const New = () => {
     },
     onError: () => {
       setIsLoading(false);
+      setError('slug', {
+        type: 'manual',
+        message:
+          'Slug already exists. Please try another one or generate a random one',
+      });
     },
   });
 
