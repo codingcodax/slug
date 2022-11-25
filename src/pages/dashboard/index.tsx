@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import { Icons, Skeleton } from '~/components/ui';
 import { getServerAuthSession } from '~/server/common/get-server-auth-session';
+import cn from '~/utils/cn';
 import { trpc } from '~/utils/trpc';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
@@ -38,8 +39,15 @@ const Dashboard = () => {
       </section>
 
       <div className='relative mb-4 w-full'>
+        <div className='absolute top-0 left-0 flex h-[42px] w-10 items-center justify-center'>
+          <Icons.Search className='h-6 w-6 stroke-mauve-1100 dark:stroke-mauveDark-1000' />
+        </div>
         <input
-          className='input w-full'
+          className={cn(
+            'input w-full pl-10',
+            isLoading || links?.length === 0 ? 'cursor-not-allowed' : ''
+          )}
+          disabled={isLoading || links?.length === 0}
           placeholder='Search'
           type='text'
           value={search}
