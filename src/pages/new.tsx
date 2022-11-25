@@ -25,7 +25,6 @@ const New = () => {
     },
     onError: (data) => {
       setIsLoading(false);
-      console.log(data);
     },
   });
 
