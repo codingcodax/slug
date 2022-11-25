@@ -94,7 +94,7 @@ const New = () => {
           </div>
 
           <div className='grid grid-flow-row gap-y-1'>
-            <label htmlFor='Description'>Description (optional)</label>
+            <label htmlFor='description'>Description (optional)</label>
             <textarea
               className={cn('input max-h-32')}
               id='description'
