@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 import { Skeleton } from '~/components/ui';
 
 interface LinkItemProps {
@@ -22,9 +20,14 @@ interface LinkItemSlugProps {
 // eslint-disable-next-line react/display-name
 LinkItem.Slug = ({ children, slug }: LinkItemSlugProps) => {
   return (
-    <Link className='text-xl' href={`https://slug.codingcodax.dev/${slug}`}>
-      /{children}
-    </Link>
+    <a
+      className='text-xl'
+      href={`https://slug.codingcodax.dev/${slug}`}
+      rel='noopener noreferrer'
+      target='_blank'
+    >
+      {children}
+    </a>
   );
 };
 
