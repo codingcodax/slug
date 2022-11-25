@@ -6,7 +6,7 @@ import { Icons, Skeleton } from '~/components/ui';
 
 const links = [
   {
-    href: '/dashboard/create',
+    href: '/dashboard/new',
     label: 'Create new link',
     icon: <Icons.Plus className='mr-2 h-4 w-4' />,
   },
