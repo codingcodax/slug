@@ -15,17 +15,6 @@ export const linkRouter = router({
   create: protectedProcedure
     .input(CreateSchema)
     .mutation(async ({ ctx, input }) => {
-      const linkExists = await ctx.prisma.link.findFirst({
-        where: { slug: { equals: input.slug } },
-      });
-
-      if (linkExists !== null)
-        throw new TRPCError({
-          code: 'CONFLICT',
-          message:
-            'Custom slug is not available. Try another one or generate randomly.',
-        });
-
       const newLink = ctx.prisma.link.create({
         data: {
           ...input,
