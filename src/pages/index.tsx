@@ -15,15 +15,12 @@ const Home: NextPage = () => {
       </div>
 
       <div className='space-x-4'>
-        <Link
-          className='inline-block rounded-md bg-mauve-1200 py-2 px-4 text-mauve-100 hover:bg-mauve-1200/90 dark:bg-mauveDark-1200 dark:text-mauveDark-100 dark:hover:bg-mauveDark-1200/90'
-          href='/dashboard'
-        >
+        <Link className='primary-link' href='/dashboard'>
           Get Started &rarr;
         </Link>
 
         <a
-          className='inline-block rounded-md bg-mauve-400 py-2 px-4 hover:bg-mauve-500 dark:bg-mauveDark-400 dark:hover:bg-mauveDark-500'
+          className='secondary-link'
           href='https://github.com/codingcodax/slug'
           rel='noopener noreferrer'
           target='_blank'
