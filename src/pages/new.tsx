@@ -106,7 +106,7 @@ const New = () => {
 
         <div className='grid grid-cols-2 gap-x-4'>
           <button className='primary-button' type='submit'>
-            {isLoading ? 'Shorten your link...' : 'Short your link'}
+            {isLoading ? 'Shorting your link...' : 'Short your link'}
           </button>
           <Link className='secondary-link' href='/dashboard'>
             Cancel
