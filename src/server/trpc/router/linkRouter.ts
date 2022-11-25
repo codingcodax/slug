@@ -17,8 +17,6 @@ export const linkRouter = router({
         where: { slug: { equals: input.slug } },
       });
 
-      console.log('link exists??', linkExists);
-
       if (linkExists !== null)
         throw new TRPCError({
           code: 'CONFLICT',
