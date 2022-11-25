@@ -2,7 +2,7 @@ import { type GetServerSideProps } from 'next';
 import Link from 'next/link';
 import { useState } from 'react';
 
-import { Links } from '~/components/pages/dashboard';
+import { AnyLinks, Links } from '~/components/pages/dashboard';
 import { Icons, Skeleton } from '~/components/ui';
 import { getServerAuthSession } from '~/server/common/get-server-auth-session';
 import cn from '~/utils/cn';
@@ -59,17 +59,7 @@ const Dashboard = () => {
       {isLoading && <Links.Skeleton />}
       {links && <Links links={filteredLinks} />}
 
-      {links?.length === 0 && (
-        <section className='flex flex-col items-center'>
-          <p>You don&apos;t have any links.</p>
-          <Link
-            className='flex items-center rounded-md px-4 py-2 hover:bg-mauve-400 dark:hover:bg-mauveDark-400'
-            href='/dashboard/new'
-          >
-            <Icons.Plus className='mr-2 h-4 w-4' /> Create one first
-          </Link>
-        </section>
-      )}
+      {links?.length === 0 && <AnyLinks />}
     </main>
   );
 };
