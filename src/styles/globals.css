@@ -20,6 +20,6 @@
   }
 
   .input {
-    @apply rounded-md border border-mauve-700 bg-transparent px-4 py-2 transition-colors duration-200 placeholder:text-mauve-1100 hover:border-mauve-800 focus:outline-none dark:border-mauveDark-700 dark:placeholder:text-mauveDark-1000 dark:hover:border-mauveDark-800;
+    @apply rounded-md border border-mauve-700 bg-transparent px-4 py-2 transition-colors duration-200 placeholder:text-mauve-1100 hover:border-mauve-800 focus:border-mauve-800 focus:outline-none dark:border-mauveDark-700 dark:placeholder:text-mauveDark-1000 dark:hover:border-mauveDark-800 dark:focus:border-mauveDark-800;
   }
 }
