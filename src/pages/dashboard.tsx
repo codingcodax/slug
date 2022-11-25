@@ -32,7 +32,7 @@ const Dashboard = () => {
       </section>
 
       <div className='relative mb-4 w-full'>
-        <input className='input' placeholder='Search' type='text' />
+        <input className='input w-full' placeholder='Search' type='text' />
       </div>
 
       {isLoading && (
