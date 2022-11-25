@@ -18,11 +18,13 @@ model Example {
   updatedAt DateTime @updatedAt
 }
 
-model ShortLink {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  url       String   @db.VarChar(2000)
-  slug      String   @unique
+model Link {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  url         String   @db.VarChar(2000)
+  slug        String   @unique
+  description String?
+  creatorId   String
 
   @@index(slug)
 }
