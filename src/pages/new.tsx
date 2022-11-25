@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
-import { toast } from 'react-hot-toast';
 
 import { type CreateLink } from '~/server/trpc/router/linkRouter';
 import { trpc } from '~/utils/trpc';
