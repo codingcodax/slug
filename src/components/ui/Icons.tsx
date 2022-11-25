@@ -6,6 +6,7 @@ import {
   LayoutList,
   LogOut,
   Plus,
+  Search,
 } from 'lucide-react';
 
 const Icons = {
@@ -16,6 +17,7 @@ const Icons = {
   LayoutList,
   LogOut,
   Plus,
+  Search,
 };
 
 export default Icons;
