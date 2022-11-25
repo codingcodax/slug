@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 import { AnyLinks, Links } from '~/components/pages/dashboard';
-import { Icons, Skeleton } from '~/components/ui';
+import { Icons } from '~/components/ui';
 import { getServerAuthSession } from '~/server/common/get-server-auth-session';
 import cn from '~/utils/cn';
 import { trpc } from '~/utils/trpc';
