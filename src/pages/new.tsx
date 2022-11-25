@@ -23,7 +23,7 @@ const New = () => {
       router.push('/dashboard');
       setIsLoading(false);
     },
-    onError: (data) => {
+    onError: () => {
       setIsLoading(false);
     },
   });
