@@ -3,15 +3,17 @@ import { z } from 'zod';
 
 import { router, protectedProcedure } from '~/server/trpc/trpc';
 
+export const CreateSchema = z.object({
+  url: z.string(),
+  slug: z.string(),
+  description: z.string().nullish(),
+});
+
+export type CreateLink = z.infer<typeof CreateSchema>;
+
 export const linkRouter = router({
   create: protectedProcedure
-    .input(
-      z.object({
-        url: z.string(),
-        slug: z.string(),
-        description: z.string().nullish(),
-      })
-    )
+    .input(CreateSchema)
     .mutation(async ({ ctx, input }) => {
       const linkExists = await ctx.prisma.link.findFirst({
         where: { slug: { equals: input.slug } },
