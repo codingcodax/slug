@@ -1,8 +1,9 @@
 import { type GetServerSideProps } from 'next';
 import Link from 'next/link';
+import type { ChangeEvent } from 'react';
 import { useState } from 'react';
 
-import { AnyLinks, Links } from '~/components/pages/dashboard';
+import { AnyLinks, Links, Searchbar } from '~/components/pages/dashboard';
 import { Icons } from '~/components/ui';
 import { getServerAuthSession } from '~/server/common/get-server-auth-session';
 import cn from '~/utils/cn';
@@ -27,6 +28,10 @@ const Dashboard = () => {
     link.slug.toLowerCase().includes(search.toLowerCase())
   );
 
+  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  };
+
   return (
     <main className='mx-auto w-full max-w-6xl'>
       <section className='mb-10 flex items-center justify-between'>
@@ -39,26 +44,14 @@ const Dashboard = () => {
         </Link>
       </section>
 
-      <div className='relative mb-4 w-full'>
-        <div className='absolute top-0 left-0 flex h-[42px] w-10 items-center justify-center'>
-          <Icons.Search className='h-6 w-6 stroke-mauve-1100 dark:stroke-mauveDark-1000' />
-        </div>
-        <input
-          className={cn(
-            'input w-full pl-10',
-            isLoading || links?.length === 0 ? 'cursor-not-allowed' : ''
-          )}
-          disabled={isLoading || links?.length === 0}
-          placeholder='Search'
-          type='text'
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-      </div>
+      <Searchbar
+        isDisabled={isLoading || links?.length === 0}
+        value={search}
+        onChange={handleSearch}
+      />
 
       {isLoading && <Links.Skeleton />}
       {links && <Links links={filteredLinks} />}
-
       {links?.length === 0 && <AnyLinks />}
     </main>
   );
