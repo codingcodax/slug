@@ -1,5 +1,6 @@
 import { type GetServerSideProps } from 'next';
 import Link from 'next/link';
+import { useState } from 'react';
 
 import { Icons, Skeleton } from '~/components/ui';
 import { getServerAuthSession } from '~/server/common/get-server-auth-session';
@@ -18,6 +19,11 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
 const Dashboard = () => {
   const { data: links, isLoading } = trpc.link.getAll.useQuery();
+  const [search, setSearch] = useState('');
+
+  const filteredLinks = links?.filter((link) =>
+    link.slug.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <main className='mx-auto w-full max-w-6xl'>
@@ -32,7 +38,13 @@ const Dashboard = () => {
       </section>
 
       <div className='relative mb-4 w-full'>
-        <input className='input w-full' placeholder='Search' type='text' />
+        <input
+          className='input w-full'
+          placeholder='Search'
+          type='text'
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
       </div>
 
       {isLoading && (
@@ -43,7 +55,7 @@ const Dashboard = () => {
         </ul>
       )}
 
-      {links?.length === 0 ? (
+      {links?.length === 0 && (
         <section className='flex flex-col items-center'>
           <p>You don&apos;t have any links.</p>
           <Link
@@ -53,9 +65,11 @@ const Dashboard = () => {
             <Icons.Plus className='mr-2 h-4 w-4' /> Create one first
           </Link>
         </section>
-      ) : (
+      )}
+
+      {links && (
         <ul className='space-y-4'>
-          {links?.map(({ id, slug, url, description }) => (
+          {filteredLinks?.map(({ id, slug, url, description }) => (
             <LinkItem key={id}>
               <LinkItem.Slug slug={slug}>{slug}</LinkItem.Slug>
               <LinkItem.Link>{url}</LinkItem.Link>
