@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import Link from 'next/link';
 import { toast } from 'react-hot-toast';
 
+import { type CreateLink } from '~/server/trpc/router/linkRouter';
 import { trpc } from '~/utils/trpc';
 import cn from '~/utils/cn';
 import { Icons } from '~/components/ui';
@@ -14,7 +15,7 @@ const New = () => {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm();
+  } = useForm<CreateLink>();
   const [isLoading, setIsLoading] = useState(false);
 
   const { mutate: createLink } = trpc.link.create.useMutation({
@@ -28,7 +29,7 @@ const New = () => {
     },
   });
 
-  const onSubmit = (values) => {
+  const onSubmit = (values: CreateLink) => {
     setIsLoading(true);
     createLink(values);
   };
