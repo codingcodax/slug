@@ -11,12 +11,12 @@
 @layer components {
   .primary-link,
   .primary-button {
-    @apply inline-block rounded-md bg-mauve-1200 py-2 px-4 text-center text-mauve-100 transition-colors duration-200 hover:bg-mauve-1200/90 focus:outline-dashed focus:outline-offset-2 focus:outline-mauve-400 dark:bg-mauveDark-1200 dark:text-mauveDark-100 dark:hover:bg-mauveDark-1200/90 dark:focus:outline-mauveDark-1200;
+    @apply inline-block rounded-md bg-mauve-1200 py-2 px-4 text-center text-mauve-100 transition-colors duration-200 hover:bg-mauve-1200/90 focus:outline-none focus-visible:outline-dashed focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-mauve-400 dark:bg-mauveDark-1200 dark:text-mauveDark-100 dark:hover:bg-mauveDark-1200/90 dark:focus-visible:outline-mauveDark-1200;
   }
 
   .secondary-link,
   .secondary-button {
-    @apply inline-block rounded-md border border-mauve-700 py-2 px-4 text-center transition-colors duration-200 hover:border-mauve-800 hover:bg-mauve-400 focus:outline-dashed focus:outline-offset-2 focus:outline-mauve-1200 dark:border-mauveDark-700 dark:hover:border-mauveDark-800 dark:hover:bg-mauveDark-400 dark:focus:outline-mauveDark-1200;
+    @apply inline-block rounded-md border border-mauve-700 py-2 px-4 text-center transition-colors duration-200 hover:border-mauve-800 hover:bg-mauve-400 focus:outline-none focus-visible:outline-dashed focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-mauve-1200 dark:border-mauveDark-700 dark:hover:border-mauveDark-800 dark:hover:bg-mauveDark-400 dark:focus-visible:outline-mauveDark-1200;
   }
 
   .input {
