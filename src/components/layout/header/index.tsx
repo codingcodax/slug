@@ -37,7 +37,7 @@ const Header = () => {
 
       {status === 'unauthenticated' ? (
         <Link
-          className='rounded-md px-3 py-2 hover:bg-mauve-400 focus:outline-none focus-visible:bg-mauve-200 focus-visible:ring-1 focus-visible:ring-mauve-600 focus-visible:ring-offset-2 dark:hover:bg-mauveDark-400 dark:focus-visible:bg-mauveDark-200 dark:focus-visible:ring-mauveDark-600'
+          className='rounded-md px-3 py-2 transition-colors duration-200 hover:bg-mauve-1200 focus:outline-none focus-visible:bg-mauve-400 focus-visible:outline-dashed focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-mauve-1200 dark:hover:bg-mauveDark-400 dark:focus-visible:bg-mauveDark-400 dark:focus-visible:outline-mauveDark-1200'
           href='/sign-in'
         >
           Sign in &rarr;
