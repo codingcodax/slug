@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Dropdown, Icons, Skeleton } from '~/components/ui';
 
 import Logo from './Logo';
+import SignInLink from './SignInLink';
 
 const links = [
   {
@@ -35,12 +36,7 @@ const Header = () => {
       <Logo />
 
       {status === 'unauthenticated' ? (
-        <Link
-          className='outline-focus-visible rounded-md px-3 py-2 transition-colors duration-200 hover:bg-mauve-400 focus-visible:bg-mauve-400 dark:hover:bg-mauveDark-400 dark:focus-visible:bg-mauveDark-400'
-          href='/sign-in'
-        >
-          Sign in &rarr;
-        </Link>
+        <SignInLink />
       ) : (
         <Dropdown>
           <Dropdown.Title className='flex items-center rounded-md px-3 py-2 hover:bg-mauve-400 focus-visible:bg-mauve-400 dark:hover:bg-mauveDark-400 dark:focus-visible:bg-mauveDark-400'>
