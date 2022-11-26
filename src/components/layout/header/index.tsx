@@ -3,6 +3,8 @@ import Link from 'next/link';
 
 import { Dropdown, Icons, Skeleton } from '~/components/ui';
 
+import Logo from './Logo';
+
 const links = [
   {
     href: '/dashboard/new',
@@ -30,9 +32,7 @@ const Header = () => {
 
   return (
     <header className='mx-auto flex w-full max-w-6xl items-center justify-between py-4'>
-      <Link className='text-2xl' href='/'>
-        slug
-      </Link>
+      <Logo />
 
       {status === 'unauthenticated' ? (
         <Link
