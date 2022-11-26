@@ -25,7 +25,7 @@ const SignIn = () => {
         </p>
       </div>
       <button
-        className='flex items-center rounded-md bg-mauve-1200 px-4 py-2 text-mauve-100 dark:bg-mauveDark-400 dark:text-mauveDark-1200'
+        className='flex items-center rounded-md bg-mauve-400 px-4 py-2 text-mauve-100 transition-colors duration-200 dark:bg-mauveDark-400 dark:text-mauveDark-1200 hover:dark:bg-mauveDark-500'
         onClick={() => signIn('github', { callbackUrl: '/dashboard' })}
       >
         <Icons.Github className='mr-2 h-4 w-4' />
