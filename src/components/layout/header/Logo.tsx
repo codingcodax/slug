@@ -1,8 +1,10 @@
+import Link from 'next/link';
+
 const Logo = () => {
   return (
-    <div>
-      <p>Logo Component</p>
-    </div>
+    <Link className='text-2xl' href='/'>
+      slug
+    </Link>
   );
 };
 
