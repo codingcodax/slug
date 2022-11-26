@@ -37,14 +37,14 @@ const Header = () => {
 
       {status === 'unauthenticated' ? (
         <Link
-          className='rounded-md px-3 py-2 transition-colors duration-200 hover:bg-mauve-1200 focus:outline-none focus-visible:bg-mauve-400 focus-visible:outline-dashed focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-mauve-1200 dark:hover:bg-mauveDark-400 dark:focus-visible:bg-mauveDark-400 dark:focus-visible:outline-mauveDark-1200'
+          className='outline-focus-visible rounded-md px-3 py-2 transition-colors duration-200 hover:bg-mauve-400 focus-visible:bg-mauve-400 dark:hover:bg-mauveDark-400 dark:focus-visible:bg-mauveDark-400'
           href='/sign-in'
         >
           Sign in &rarr;
         </Link>
       ) : (
         <Menu as='div' className='relative inline-block'>
-          <Menu.Button className='flex items-center space-x-4 rounded-md px-3 py-2 hover:bg-mauve-400 focus:outline-none focus-visible:bg-mauve-200 focus-visible:ring-1 focus-visible:ring-mauve-600 focus-visible:ring-offset-2 dark:hover:bg-mauveDark-400 dark:focus-visible:bg-mauveDark-200 dark:focus-visible:ring-mauveDark-600'>
+          <Menu.Button className='outline-focus-visible flex items-center rounded-md px-3 py-2 transition-colors duration-200 hover:bg-mauve-400 focus-visible:bg-mauve-400 dark:hover:bg-mauveDark-400 dark:focus-visible:bg-mauveDark-400'>
             {status === 'loading' ? (
               <Skeleton className='h-6 w-[70px]' />
             ) : (
