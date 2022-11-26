@@ -2,7 +2,7 @@ import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { Menu } from '@headlessui/react';
 
-import { Icons, Skeleton } from '~/components/ui';
+import { Dropdown, Icons, Skeleton } from '~/components/ui';
 
 const links = [
   {
@@ -43,8 +43,8 @@ const Header = () => {
           Sign in &rarr;
         </Link>
       ) : (
-        <Menu as='div' className='relative inline-block'>
-          <Menu.Button className='outline-focus-visible flex items-center rounded-md px-3 py-2 transition-colors duration-200 hover:bg-mauve-400 focus-visible:bg-mauve-400 dark:hover:bg-mauveDark-400 dark:focus-visible:bg-mauveDark-400'>
+        <Dropdown>
+          <Dropdown.Title className='flex items-center rounded-md px-3 py-2 hover:bg-mauve-400 focus-visible:bg-mauve-400 dark:hover:bg-mauveDark-400 dark:focus-visible:bg-mauveDark-400'>
             {status === 'loading' ? (
               <Skeleton className='h-6 w-[70px]' />
             ) : (
@@ -53,10 +53,10 @@ const Header = () => {
                 <Icons.ChevronDown className='ml-2 h-4 w-4' />
               </>
             )}
-          </Menu.Button>
-          <Menu.Items className='absolute right-0 z-40 mt-2 w-56 origin-top-right rounded-md border border-mauve-600 bg-mauve-200 p-1 shadow-lg focus:outline-none dark:border-mauveDark-600 dark:bg-mauveDark-200'>
+          </Dropdown.Title>
+          <Dropdown.Items className='rounded-md border border-mauve-600 bg-mauve-200 shadow-lg dark:border-mauveDark-600 dark:bg-mauveDark-200'>
             {links.map(({ href, label, icon, isExternal }) => (
-              <Menu.Item key={href}>
+              <Dropdown.Item key={href}>
                 {isExternal ? (
                   <a
                     className={menuItemStyles}
@@ -73,10 +73,10 @@ const Header = () => {
                     {label}
                   </Link>
                 )}
-              </Menu.Item>
+              </Dropdown.Item>
             ))}
 
-            <Menu.Item>
+            <Dropdown.Item>
               <button
                 className={menuItemStyles}
                 onClick={() => signOut({ callbackUrl: '/' })}
@@ -84,9 +84,9 @@ const Header = () => {
                 <Icons.LogOut className='mr-2 h-4 w-4' />
                 Sign out
               </button>
-            </Menu.Item>
-          </Menu.Items>
-        </Menu>
+            </Dropdown.Item>
+          </Dropdown.Items>
+        </Dropdown>
       )}
     </header>
   );
