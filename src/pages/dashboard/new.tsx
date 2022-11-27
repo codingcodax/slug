@@ -1,12 +1,25 @@
+import { type GetServerSideProps } from 'next';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
 
 import { type CreateLink } from '~/server/trpc/router/linkRouter';
+import { getServerAuthSession } from '~/server/common/get-server-auth-session';
 import { trpc } from '~/utils/trpc';
 import cn from '~/utils/cn';
 import { Icons } from '~/components/ui';
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const session = await getServerAuthSession(ctx);
+
+  if (!session)
+    return {
+      redirect: { destination: '/sign-in', permanent: false },
+    };
+
+  return { props: { session } };
+};
 
 const New = () => {
   const router = useRouter();
