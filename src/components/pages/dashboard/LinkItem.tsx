@@ -1,4 +1,4 @@
-import { Skeleton } from '~/components/ui';
+import { ExternalLink, Skeleton } from '~/components/ui';
 import getBaseUrl from '~/utils/getBaseUrl';
 
 interface LinkItemProps {
@@ -21,14 +21,9 @@ interface LinkItemSlugProps {
 // eslint-disable-next-line react/display-name
 LinkItem.Slug = ({ children, slug }: LinkItemSlugProps) => {
   return (
-    <a
-      className='text-xl'
-      href={`${getBaseUrl()}/${slug}`}
-      rel='noopener noreferrer'
-      target='_blank'
-    >
-      {children}
-    </a>
+    <ExternalLink className='text-xl' href={`${getBaseUrl()}/${slug}`}>
+      /{children}
+    </ExternalLink>
   );
 };
 

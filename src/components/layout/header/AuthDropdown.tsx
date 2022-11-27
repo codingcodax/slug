@@ -1,7 +1,7 @@
 import { signOut } from 'next-auth/react';
 import Link from 'next/link';
 
-import { Dropdown, Icons, Skeleton } from '~/components/ui';
+import { Dropdown, ExternalLink, Icons, Skeleton } from '~/components/ui';
 
 interface AuthDropdownProps {
   isLoading: boolean;
@@ -36,15 +36,13 @@ const AuthDropdown = ({ isLoading, username }: AuthDropdownProps) => {
         </Dropdown.Item>
 
         <Dropdown.Item>
-          <a
+          <ExternalLink
             className='dropdown-item'
             href='https://github.com/codingcodax/slug/issues'
-            rel='noopener noreferrer'
-            target='_blank'
           >
             <Icons.CircleDot className='mr-2 h-4 w-4' />
             Report a bug
-          </a>
+          </ExternalLink>
         </Dropdown.Item>
 
         <Dropdown.Item>

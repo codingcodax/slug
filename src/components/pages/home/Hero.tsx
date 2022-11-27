@@ -1,5 +1,7 @@
 import Link from 'next/link';
 
+import { ExternalLink } from '~/components/ui';
+
 const Hero = () => {
   return (
     <main className='mx-auto mt-10 flex max-w-6xl flex-col items-center space-y-10'>
@@ -18,14 +20,12 @@ const Hero = () => {
           Get Started &rarr;
         </Link>
 
-        <a
+        <ExternalLink
           className='secondary-link'
           href='https://github.com/codingcodax/slug'
-          rel='noopener noreferrer'
-          target='_blank'
         >
           Star on GitHub
-        </a>
+        </ExternalLink>
       </div>
     </main>
   );
