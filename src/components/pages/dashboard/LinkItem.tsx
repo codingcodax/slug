@@ -1,4 +1,5 @@
 import { Skeleton } from '~/components/ui';
+import getBaseUrl from '~/utils/getBaseUrl';
 
 interface LinkItemProps {
   children: React.ReactNode;
@@ -22,7 +23,7 @@ LinkItem.Slug = ({ children, slug }: LinkItemSlugProps) => {
   return (
     <a
       className='text-xl'
-      href={`https://slug.codingcodax.dev/${slug}`}
+      href={`${getBaseUrl()}/${slug}`}
       rel='noopener noreferrer'
       target='_blank'
     >
