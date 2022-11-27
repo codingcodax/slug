@@ -6,7 +6,6 @@ import { useState } from 'react';
 import { AnyLinks, Links, Searchbar } from '~/components/pages/dashboard';
 import { Icons } from '~/components/ui';
 import { getServerAuthSession } from '~/server/common/get-server-auth-session';
-import cn from '~/utils/cn';
 import { trpc } from '~/utils/trpc';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
