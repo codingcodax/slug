@@ -11,7 +11,7 @@ const getUrl = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
-  const data = await prisma.shortLink.findFirst({
+  const data = await prisma.link.findFirst({
     where: { slug: { equals: slug } },
   });
 
