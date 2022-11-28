@@ -36,7 +36,7 @@ const Dashboard = () => {
       <section className='mb-10 flex items-center justify-between'>
         <h1 className='text-3xl font-medium'>Dashboard</h1>
         <Link
-          className='flex items-center rounded-md px-4 py-2 hover:bg-mauve-400 dark:hover:bg-mauveDark-400'
+          className='outline-focus-visible flex items-center rounded-md px-4 py-2 hover:bg-mauve-400 focus-visible:bg-mauve-400 dark:hover:bg-mauveDark-400 dark:focus-visible:bg-mauveDark-400'
           href='/dashboard/new'
         >
           <Icons.Plus className='mr-2 h-4 w-4' /> Create new link
