@@ -21,7 +21,10 @@ interface LinkItemSlugProps {
 // eslint-disable-next-line react/display-name
 LinkItem.Slug = ({ children, slug }: LinkItemSlugProps) => {
   return (
-    <ExternalLink className='text-xl' href={`${getBaseUrl()}/${slug}`}>
+    <ExternalLink
+      className='outline-focus-visible rounded-md text-xl'
+      href={`${getBaseUrl()}/${slug}`}
+    >
       /{children}
     </ExternalLink>
   );
