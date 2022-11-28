@@ -24,7 +24,7 @@ Dropdown.Title = ({ className, children }: DropdownTitleProps) => {
   return (
     <Menu.Button
       className={cn(
-        'outline-visible-focus transition-colors duration-200',
+        'outline-visible-focus flex items-center rounded-md px-3 py-2 transition-colors duration-200 hover:bg-mauve-400 focus-visible:bg-mauve-400 dark:hover:bg-mauveDark-400 dark:focus-visible:bg-mauveDark-400',
         className
       )}
     >
@@ -43,7 +43,7 @@ Dropdown.Items = ({ className, children }: DropdownItemsProps) => {
   return (
     <Menu.Items
       className={cn(
-        'absolute right-0 z-40 mt-2 w-56 origin-top-right p-1 focus:outline-none',
+        'absolute right-0 z-40 mt-2 w-56 origin-top-right rounded-md border border-mauve-600 bg-mauve-200 p-1 shadow-lg focus:outline-none dark:border-mauveDark-600 dark:bg-mauveDark-200',
         className
       )}
     >
