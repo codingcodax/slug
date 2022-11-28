@@ -11,7 +11,7 @@ interface AuthDropdownProps {
 const AuthDropdown = ({ isLoading, username }: AuthDropdownProps) => {
   return (
     <Dropdown>
-      <Dropdown.Title className='outline-focus-visible flex items-center rounded-md px-3 py-2 hover:bg-mauve-400 focus-visible:bg-mauve-400 dark:hover:bg-mauveDark-400 dark:focus-visible:bg-mauveDark-400'>
+      <Dropdown.Title>
         {isLoading ? (
           <Skeleton className='h-6 w-[70px]' />
         ) : (
@@ -20,7 +20,7 @@ const AuthDropdown = ({ isLoading, username }: AuthDropdownProps) => {
           </>
         )}
       </Dropdown.Title>
-      <Dropdown.Items className='rounded-md border border-mauve-600 bg-mauve-200 shadow-lg dark:border-mauveDark-600 dark:bg-mauveDark-200'>
+      <Dropdown.Items>
         <Dropdown.Item>
           <Link className='dropdown-item' href='/dashboard/new'>
             <Icons.Plus className='mr-2 h-4 w-4' />
