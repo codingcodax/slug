@@ -1,4 +1,5 @@
-import { Menu } from '@headlessui/react';
+import { Menu, Transition } from '@headlessui/react';
+import { Fragment } from 'react';
 
 import cn from '~/utils/cn';
 
@@ -41,14 +42,24 @@ interface DropdownItemsProps {
 // eslint-disable-next-line react/display-name
 Dropdown.Items = ({ className, children }: DropdownItemsProps) => {
   return (
-    <Menu.Items
-      className={cn(
-        'absolute right-0 z-40 mt-2 w-56 origin-top-right rounded-md border border-mauve-600 bg-mauve-200 p-1 shadow-lg focus:outline-none dark:border-mauveDark-600 dark:bg-mauveDark-200',
-        className
-      )}
+    <Transition
+      as={Fragment}
+      enter='transition ease-out duration-100'
+      enterFrom='transform opacity-0 scale-95'
+      enterTo='transform opacity-100 scale-100'
+      leave='transition ease-in duration-75'
+      leaveFrom='transform opacity-100 scale-100'
+      leaveTo='transform opacity-0 scale-95'
     >
-      {children}
-    </Menu.Items>
+      <Menu.Items
+        className={cn(
+          'absolute right-0 z-40 mt-2 w-56 origin-top-right rounded-md border border-mauve-600 bg-mauve-200 p-1 shadow-lg focus:outline-none dark:border-mauveDark-600 dark:bg-mauveDark-200',
+          className
+        )}
+      >
+        {children}
+      </Menu.Items>
+    </Transition>
   );
 };
 
