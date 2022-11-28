@@ -5,6 +5,7 @@ import {
   Github,
   LayoutList,
   LogOut,
+  MoreVertical,
   Plus,
   Search,
 } from 'lucide-react';
@@ -16,6 +17,7 @@ const Icons = {
   Github,
   LayoutList,
   LogOut,
+  MoreVertical,
   Plus,
   Search,
 };
