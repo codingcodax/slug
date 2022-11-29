@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
 
-import { type CreateLink } from '~/server/trpc/router/linkRouter';
+import type { CreateLinkSchema } from '~/types/link';
 import { getServerAuthSession } from '~/server/common/get-server-auth-session';
 import { trpc } from '~/utils/trpc';
 import cn from '~/utils/cn';
@@ -28,7 +28,7 @@ const New = () => {
     register,
     setError,
     formState: { errors },
-  } = useForm<CreateLink>();
+  } = useForm<CreateLinkSchema>();
   const [isLoading, setIsLoading] = useState(false);
 
   const { mutate: createLink } = trpc.link.create.useMutation({
