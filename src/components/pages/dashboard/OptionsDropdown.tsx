@@ -39,6 +39,7 @@ const OptionsDropdown = ({ slug, handleModal }: OptionsDropdownProps) => {
 
         <Dropdown.Item>
           <button className='dropdown-item' onClick={() => handleModal('edit')}>
+            <Icons.FileEdit className='mr-2 h-4 w-4' />
             Edit
           </button>
         </Dropdown.Item>
