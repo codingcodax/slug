@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
-import type { LinkSchema } from '~/server/trpc/router/linkRouter';
+import type { LinkSchema } from '~/types/link';
 
+import EditModal from './EditModal';
 import OptionsDropdown from './OptionsDropdown';
 
 export interface LinkItemOptionsProps {
@@ -33,6 +34,15 @@ const LinkItemOptions = ({
   return (
     <div className='absolute top-4 right-4'>
       <OptionsDropdown handleModal={handleModal} slug={slug} />
+
+      <EditModal
+        description={description}
+        id={id}
+        show={modalsState.editModal}
+        slug={slug}
+        url={url}
+        onClose={() => handleModal('edit')}
+      />
     </div>
   );
 };
