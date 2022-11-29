@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Icons, Modal } from '~/components/ui';
 import type { EditLinkSchema } from '~/types/link';
 import cn from '~/utils/cn';
+import { trpc } from '~/utils/trpc';
 
 interface EditModalProps extends EditLinkSchema {
   show: boolean;
@@ -13,6 +14,7 @@ interface EditModalProps extends EditLinkSchema {
 const EditModal = ({
   show,
   onClose,
+  id,
   slug,
   url,
   description,
@@ -25,6 +27,21 @@ const EditModal = ({
   } = useForm<EditLinkSchema>();
   const [isLoading, setIsLoading] = useState(false);
 
+  const { mutate: editLink } = trpc.link.edit.useMutation({
+    onSuccess: () => {
+      onClose();
+      setIsLoading(false);
+    },
+    onError: () => {
+      setIsLoading(false);
+      setError('slug', {
+        type: 'manual',
+        message:
+          'Slug already exists. Please try another one or generate a random one',
+      });
+    },
+  });
+
   const onSubmit = (values: EditLinkSchema) => {
     setIsLoading(true);
     console.log(values);
@@ -32,7 +49,7 @@ const EditModal = ({
 
   return (
     <Modal show={show} onClose={onClose}>
-      <Modal.Title>Edit: /{slug}</Modal.Title>
+      <Modal.Title>Edit: {slug}</Modal.Title>
       <Modal.Description>Update the URL or the description</Modal.Description>
       <Modal.Body>
         <div>
@@ -83,7 +100,9 @@ const EditModal = ({
               <button className='primary-button' type='submit'>
                 {isLoading ? 'Updating your link' : 'Update your link'}
               </button>
-              <button className='secondary-link'>Cancel</button>
+              <button className='secondary-link' onClick={onClose}>
+                Cancel
+              </button>
             </div>
           </form>
         </div>
