@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { Modal } from '~/components/ui';
+import { Icons, Modal } from '~/components/ui';
 import type { EditLinkSchema } from '~/types/link';
 import cn from '~/utils/cn';
 
@@ -63,6 +63,8 @@ const EditModal = ({
                     },
                   })}
                 />
+
+                {errors.url && <Error>{errors.url.message?.toString()}</Error>}
               </div>
 
               <div className='grid grid-flow-row gap-y-1'>
@@ -87,6 +89,19 @@ const EditModal = ({
         </div>
       </Modal.Body>
     </Modal>
+  );
+};
+
+interface ErrorProps {
+  children: React.ReactNode;
+}
+
+const Error = ({ children }: ErrorProps) => {
+  return (
+    <span className='flex items-center text-sm text-red-900'>
+      <Icons.AlertCircle className='mr-2 h-4 w-4 stroke-red-900' />
+      {children}
+    </span>
   );
 };
 
