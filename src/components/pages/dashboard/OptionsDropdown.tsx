@@ -1,5 +1,5 @@
 import { Dropdown, Icons } from '~/components/ui';
-import type { LinkSchema } from '~/server/trpc/router/linkRouter';
+import type { LinkSchema } from '~/types/link';
 import getBaseUrl from '~/utils/getBaseUrl';
 
 interface OptionsDropdownProps {

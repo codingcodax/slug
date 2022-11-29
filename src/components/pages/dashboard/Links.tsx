@@ -1,4 +1,4 @@
-import { type LinkSchema } from '~/server/trpc/router/linkRouter';
+import { type LinkSchema } from '~/types/link';
 
 import LinkItem from './LinkItem';
 
