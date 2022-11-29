@@ -49,6 +49,7 @@ const OptionsDropdown = ({ slug, handleModal }: OptionsDropdownProps) => {
             className='dropdown-item'
             onClick={() => handleModal('delete')}
           >
+            <Icons.Trash2 className='mr-2 h-4 w-4' />
             Delete
           </button>
         </Dropdown.Item>
