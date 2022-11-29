@@ -11,18 +11,15 @@ export const LinkSchema = z.object({
   description: z.string().nullish(),
 });
 
-export const CreateSchema = z.object({
+export const CreateLinkSchema = z.object({
   url: z.string(),
   slug: z.string(),
   description: z.string().nullish(),
 });
 
-export type LinkSchema = z.infer<typeof LinkSchema>;
-export type CreateLink = z.infer<typeof CreateSchema>;
-
 export const linkRouter = router({
   create: protectedProcedure
-    .input(CreateSchema)
+    .input(CreateLinkSchema)
     .mutation(async ({ ctx, input }) => {
       const newLink = ctx.prisma.link.create({
         data: {
