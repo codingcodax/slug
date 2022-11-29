@@ -32,7 +32,7 @@ const OptionsDropdown = ({ slug, handleModal }: OptionsDropdownProps) => {
             className='dropdown-item'
             onClick={() => copytoclipboard(`${getBaseUrl()}/${slug}`)}
           >
-            <Icons.Copy className='mr-2 h-4 w-4' />
+            <Icons.ClipboardCopy className='mr-2 h-4 w-4' />
             Copy
           </button>
         </Dropdown.Item>
