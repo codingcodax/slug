@@ -1,4 +1,4 @@
-import { Dropdown, ExternalLink, Skeleton } from '~/components/ui';
+import { ExternalLink, Skeleton } from '~/components/ui';
 import getBaseUrl from '~/utils/getBaseUrl';
 
 import LinkItemOptions, { type LinkItemOptionsProps } from './LinkItemOptions';
