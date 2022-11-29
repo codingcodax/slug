@@ -1,6 +1,7 @@
 import {
   AlertCircle,
   CircleDot,
+  Copy,
   ChevronDown,
   Github,
   LayoutList,
@@ -13,6 +14,7 @@ import {
 const Icons = {
   AlertCircle,
   CircleDot,
+  Copy,
   ChevronDown,
   Github,
   LayoutList,
