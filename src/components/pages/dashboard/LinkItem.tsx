@@ -1,5 +1,7 @@
-import { ExternalLink, Skeleton } from '~/components/ui';
+import { Dropdown, ExternalLink, Skeleton } from '~/components/ui';
 import getBaseUrl from '~/utils/getBaseUrl';
+
+import LinkItemOptions, { type LinkItemOptionsProps } from './LinkItemOptions';
 
 interface LinkItemProps {
   children: React.ReactNode;
@@ -7,7 +9,7 @@ interface LinkItemProps {
 
 const LinkItem = ({ children }: LinkItemProps) => {
   return (
-    <li className='rounded-md border border-mauve-600 p-4 transition-colors duration-200 hover:border-mauve-700 dark:border-mauveDark-600 dark:hover:border-mauveDark-700'>
+    <li className='relative rounded-md border border-mauve-600 p-4 transition-colors duration-200 hover:border-mauve-700 dark:border-mauveDark-600 dark:hover:border-mauveDark-700'>
       {children}
     </li>
   );
@@ -47,6 +49,11 @@ interface LinkItemDescriptionProps {
 LinkItem.Description = ({ children }: LinkItemDescriptionProps) => {
   return <p className='mt-2'>{children || 'No description'}</p>;
 };
+
+// eslint-disable-next-line react/display-name
+LinkItem.Options = ({ id, slug, url, description }: LinkItemOptionsProps) => (
+  <LinkItemOptions description={description} id={id} slug={slug} url={url} />
+);
 
 interface LinkItemSkeletonProps {
   variant?: 1 | 2;
