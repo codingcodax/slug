@@ -14,6 +14,12 @@ const Links = ({ links }: LinksProps) => {
           <LinkItem.Slug slug={slug}>{slug}</LinkItem.Slug>
           <LinkItem.Link>{url}</LinkItem.Link>
           <LinkItem.Description>{description}</LinkItem.Description>
+          <LinkItem.Options
+            description={description}
+            id={id}
+            slug={slug}
+            url={url}
+          />
         </LinkItem>
       ))}
     </ul>
