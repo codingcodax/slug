@@ -18,6 +18,7 @@ export const CreateLinkSchema = z.object({
 });
 
 export const EditLinkSchema = z.object({
+  id: z.number(),
   url: z.string(),
   slug: z.string(),
   description: z.string().nullish(),
@@ -28,6 +29,19 @@ export const linkRouter = router({
     .input(CreateLinkSchema)
     .mutation(async ({ ctx, input }) => {
       const newLink = ctx.prisma.link.create({
+        data: {
+          ...input,
+          creatorId: ctx.session.user.id,
+        },
+      });
+
+      return newLink;
+    }),
+  edit: protectedProcedure
+    .input(EditLinkSchema)
+    .mutation(async ({ ctx, input }) => {
+      const newLink = ctx.prisma.link.update({
+        where: { id: input.id },
         data: {
           ...input,
           creatorId: ctx.session.user.id,
