@@ -17,6 +17,12 @@ export const CreateLinkSchema = z.object({
   description: z.string().nullish(),
 });
 
+export const EditLinkSchema = z.object({
+  url: z.string(),
+  slug: z.string(),
+  description: z.string().nullish(),
+});
+
 export const linkRouter = router({
   create: protectedProcedure
     .input(CreateLinkSchema)
