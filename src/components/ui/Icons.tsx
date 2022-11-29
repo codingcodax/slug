@@ -1,7 +1,7 @@
 import {
   AlertCircle,
   CircleDot,
-  Copy,
+  ClipboardCopy,
   ChevronDown,
   FileEdit,
   Github,
@@ -10,12 +10,13 @@ import {
   MoreVertical,
   Plus,
   Search,
+  Trash,
 } from 'lucide-react';
 
 const Icons = {
   AlertCircle,
   CircleDot,
-  Copy,
+  ClipboardCopy,
   ChevronDown,
   FileEdit,
   Github,
@@ -24,6 +25,7 @@ const Icons = {
   MoreVertical,
   Plus,
   Search,
+  Trash,
 };
 
 export default Icons;
