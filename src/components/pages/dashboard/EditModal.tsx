@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+
 import { Modal } from '~/components/ui';
 import type { EditLinkSchema } from '~/types/link';
 import cn from '~/utils/cn';
@@ -14,13 +17,29 @@ const EditModal = ({
   url,
   description,
 }: EditModalProps) => {
+  const {
+    handleSubmit,
+    register,
+    setError,
+    formState: { errors },
+  } = useForm<EditLinkSchema>();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onSubmit = (values: EditLinkSchema) => {
+    setIsLoading(true);
+    console.log(values);
+  };
+
   return (
     <Modal show={show} onClose={onClose}>
       <Modal.Title>Edit: /{slug}</Modal.Title>
       <Modal.Description>Update the URL or the description</Modal.Description>
       <Modal.Body>
         <div>
-          <form className='grid max-w-xl gap-y-8'>
+          <form
+            className='grid max-w-xl gap-y-8'
+            onSubmit={handleSubmit(onSubmit)}
+          >
             <div className='space-y-4'>
               <div className='grid grid-flow-row gap-y-1'>
                 <label htmlFor='url'>Enter the new URL:</label>
@@ -28,7 +47,21 @@ const EditModal = ({
                   className='input'
                   defaultValue={url}
                   id='url'
+                  placeholder='https://github.com/codingcodax/'
                   type='text'
+                  {...register('url', {
+                    required: { value: true, message: 'Please enter a URL' },
+                    minLength: {
+                      value: 10,
+                      message:
+                        'Please enter a valid URL. It should be at least 10 characters long',
+                    },
+                    pattern: {
+                      value: /^https?:\/\//i,
+                      message:
+                        'Please enter a valid URL. It should start with http:// or https://',
+                    },
+                  })}
                 />
               </div>
 
@@ -38,13 +71,15 @@ const EditModal = ({
                   className={cn('input max-h-32')}
                   defaultValue={description || ''}
                   id='description'
+                  placeholder='This link redirecs to my awesome portfolio'
+                  {...register('description')}
                 />
               </div>
             </div>
 
             <div className='grid grid-cols-2 gap-x-4'>
               <button className='primary-button' type='submit'>
-                Update your link
+                {isLoading ? 'Updating your link' : 'Update your link'}
               </button>
               <button className='secondary-link'>Cancel</button>
             </div>
