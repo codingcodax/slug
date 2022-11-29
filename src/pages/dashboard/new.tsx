@@ -46,7 +46,7 @@ const New = () => {
     },
   });
 
-  const onSubmit = (values: CreateLink) => {
+  const onSubmit = (values: CreateLinkSchema) => {
     setIsLoading(true);
     createLink(values);
   };
