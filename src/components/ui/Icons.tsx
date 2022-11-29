@@ -10,7 +10,7 @@ import {
   MoreVertical,
   Plus,
   Search,
-  Trash,
+  Trash2,
 } from 'lucide-react';
 
 const Icons = {
@@ -25,7 +25,7 @@ const Icons = {
   MoreVertical,
   Plus,
   Search,
-  Trash,
+  Trash2,
 };
 
 export default Icons;
