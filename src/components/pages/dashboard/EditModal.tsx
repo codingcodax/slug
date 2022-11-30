@@ -44,7 +44,7 @@ const EditModal = ({
 
   const onSubmit = (values: EditLinkSchema) => {
     setIsLoading(true);
-    console.log(values);
+    editLink({ ...values, id });
   };
 
   return (
@@ -82,6 +82,39 @@ const EditModal = ({
                 />
 
                 {errors.url && <Error>{errors.url.message?.toString()}</Error>}
+              </div>
+
+              <div className='grid grid-flow-row gap-y-1'>
+                <label htmlFor='slug'>
+                  Enter your new slug:
+                  <br />
+                  <span className='text-sm text-mauve-1100 dark:text-mauveDark-1100'>
+                    https://slug.codingcodax.dev/&#36;&#10100;your-slug&#10101;
+                  </span>
+                </label>
+                <input
+                  className='input'
+                  defaultValue={slug}
+                  id='slug'
+                  placeholder='my-portfolio'
+                  type='text'
+                  {...register('slug', {
+                    required: {
+                      value: true,
+                      message:
+                        'Please enter a custom slug or generate a random one',
+                    },
+                    pattern: {
+                      value: /^[a-zA-Z0-9_-]+$/i,
+                      message:
+                        'Please enter a valid slug with blank space or special characters.',
+                    },
+                  })}
+                />
+
+                {errors.slug && (
+                  <Error>{errors.slug.message?.toString()}</Error>
+                )}
               </div>
 
               <div className='grid grid-flow-row gap-y-1'>
