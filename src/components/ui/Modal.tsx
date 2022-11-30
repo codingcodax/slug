@@ -1,5 +1,11 @@
 import { Fragment } from 'react';
+import { Inter } from '@next/font/google';
 import { Dialog, Transition } from '@headlessui/react';
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+});
 
 interface ModalProps {
   show: boolean;
@@ -10,7 +16,11 @@ interface ModalProps {
 const Modal = ({ show, onClose, children }: ModalProps) => {
   return (
     <Transition appear as={Fragment} show={show}>
-      <Dialog as='div' className='relative z-10' onClose={onClose}>
+      <Dialog
+        as='div'
+        className={`relative z-10 ${inter.variable} font-sans`}
+        onClose={onClose}
+      >
         <Transition.Child
           as={Fragment}
           enter='ease-out duration-300'
