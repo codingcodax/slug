@@ -24,7 +24,7 @@ interface LinkItemSlugProps {
 LinkItem.Slug = ({ children, slug }: LinkItemSlugProps) => {
   return (
     <ExternalLink
-      className='rounded-md text-xl hover:text-mauve-1200/80 focus:outline-none focus-visible:text-mauve-1200/80 focus-visible:underline focus-visible:decoration-wavy focus-visible:underline-offset-2 dark:focus-visible:text-mauveDark-1200/80'
+      className='rounded-md text-xl hover:text-mauve-1200/80 focus:outline-none focus-visible:text-mauve-1200/80 focus-visible:underline focus-visible:decoration-wavy focus-visible:underline-offset-2 dark:hover:text-mauveDark-1200/80 dark:focus-visible:text-mauveDark-1200/80'
       href={`${getBaseUrl()}/${slug}`}
     >
       /{children}
