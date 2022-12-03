@@ -2,6 +2,7 @@ import getBaseUrl from '~/utils/getBaseUrl';
 import { ExternalLink, Skeleton } from '~/components/ui';
 
 import LinkItemOptions, { type LinkItemOptionsProps } from './LinkItemOptions';
+import CopyButton from './CopyButton';
 
 interface LinkItemProps {
   children: React.ReactNode;
@@ -23,12 +24,16 @@ interface LinkItemSlugProps {
 // eslint-disable-next-line react/display-name
 LinkItem.Slug = ({ children, slug }: LinkItemSlugProps) => {
   return (
-    <ExternalLink
-      className='rounded-md text-xl hover:text-mauve-1200/80 focus:outline-none focus-visible:text-mauve-1200/80 focus-visible:underline focus-visible:decoration-wavy focus-visible:underline-offset-2 dark:hover:text-mauveDark-1200/80 dark:focus-visible:text-mauveDark-1200/80'
-      href={`${getBaseUrl()}/${slug}`}
-    >
-      /{children}
-    </ExternalLink>
+    <div className='flex items-center'>
+      <ExternalLink
+        className='rounded-md text-xl hover:text-mauve-1200/80 focus:outline-none focus-visible:text-mauve-1200/80 focus-visible:underline focus-visible:decoration-wavy focus-visible:underline-offset-2 dark:hover:text-mauveDark-1200/80 dark:focus-visible:text-mauveDark-1200/80'
+        href={`${getBaseUrl()}/${slug}`}
+      >
+        /{children}
+      </ExternalLink>
+
+      <CopyButton slug={`${getBaseUrl()}/${slug}`} />
+    </div>
   );
 };
 
