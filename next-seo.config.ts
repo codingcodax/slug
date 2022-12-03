@@ -1,9 +1,9 @@
 import type { DefaultSeoProps } from 'next-seo';
 
 const title = 'Slug | URL shortener';
-const description =
+export const description =
   'slug is an open source link managment platform to short your links made for devs.';
-const domain = 'https://slug.codingcodax.dev';
+export const domain = 'https://slug.codingcodax.dev';
 
 const SEO: DefaultSeoProps = {
   title,
