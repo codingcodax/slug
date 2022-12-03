@@ -9,7 +9,7 @@ import { trpc } from '~/utils/trpc';
 import '~/styles/globals.css';
 import Layout from '~/components/layout';
 
-import { SEO, additionalMetaTags, additionalLinkTags } from 'next-seo.config';
+import { SEO } from 'next-seo.config';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -27,11 +27,7 @@ const MyApp = ({
           className={`${inter.variable} grid min-h-screen grid-rows-[auto_1fr_auto] px-4 font-sans`}
         >
           <Layout>
-            <DefaultSeo
-              {...SEO}
-              {...additionalMetaTags}
-              {...additionalLinkTags}
-            />
+            <DefaultSeo {...SEO} />
             <Component {...pageProps} />
           </Layout>
         </div>
