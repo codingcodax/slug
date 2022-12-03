@@ -22,7 +22,7 @@ const OptionsDropdown = ({ slug, handleModal }: OptionsDropdownProps) => {
 
   return (
     <Dropdown>
-      <Dropdown.Title>
+      <Dropdown.Title className='px-2'>
         <Icons.MoreVertical className='h-4 w-4' />
       </Dropdown.Title>
 
