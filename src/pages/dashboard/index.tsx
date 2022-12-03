@@ -1,13 +1,13 @@
-import { type GetServerSideProps } from 'next';
-import Link from 'next/link';
 import type { ChangeEvent } from 'react';
 import { useState } from 'react';
+import { type GetServerSideProps } from 'next';
+import Link from 'next/link';
 
-import { Seo } from '~/components';
-import { AnyLinks, Links, Searchbar } from '~/components/pages/dashboard';
-import { Icons } from '~/components/ui';
-import { getServerAuthSession } from '~/server/common/get-server-auth-session';
 import { trpc } from '~/utils/trpc';
+import { getServerAuthSession } from '~/server/common/get-server-auth-session';
+import { Seo } from '~/components';
+import { Icons } from '~/components/ui';
+import { AnyLinks, Links, Searchbar } from '~/components/pages/dashboard';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const session = await getServerAuthSession(ctx);

@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { Icons, Modal } from '~/components/ui';
 import type { EditLinkSchema } from '~/types/link';
 import cn from '~/utils/cn';
 import { trpc } from '~/utils/trpc';
+import { Icons, Modal } from '~/components/ui';
 
 interface EditModalProps extends EditLinkSchema {
   show: boolean;

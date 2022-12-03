@@ -1,7 +1,7 @@
 import type { ChangeEvent } from 'react';
 
-import { Icons } from '~/components/ui';
 import cn from '~/utils/cn';
+import { Icons } from '~/components/ui';
 
 interface SearchbarProps {
   value: string;

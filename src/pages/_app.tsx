@@ -1,12 +1,12 @@
 import { type AppProps } from 'next/app';
 import { type Session } from 'next-auth';
+import { Inter } from '@next/font/google';
 import { SessionProvider } from 'next-auth/react';
 import { ThemeProvider } from 'next-themes';
-import { Inter } from '@next/font/google';
 import { DefaultSeo } from 'next-seo';
 
-import { trpc } from '~/utils/trpc';
 import '~/styles/globals.css';
+import { trpc } from '~/utils/trpc';
 import Layout from '~/components/layout';
 
 import SEO from 'next-seo.config';

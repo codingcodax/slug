@@ -1,5 +1,5 @@
-import { ExternalLink, Skeleton } from '~/components/ui';
 import getBaseUrl from '~/utils/getBaseUrl';
+import { ExternalLink, Skeleton } from '~/components/ui';
 
 import LinkItemOptions, { type LinkItemOptionsProps } from './LinkItemOptions';
 

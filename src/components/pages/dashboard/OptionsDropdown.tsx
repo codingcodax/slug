@@ -1,6 +1,6 @@
-import { Dropdown, Icons } from '~/components/ui';
 import type { LinkSchema } from '~/types/link';
 import getBaseUrl from '~/utils/getBaseUrl';
+import { Dropdown, Icons } from '~/components/ui';
 
 interface OptionsDropdownProps {
   slug: LinkSchema['slug'];

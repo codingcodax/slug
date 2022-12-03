@@ -1,9 +1,9 @@
 import { type GetServerSideProps } from 'next';
 import { signIn } from 'next-auth/react';
 
-import { Seo } from '~/components';
-import { Icons } from '~/components/ui';
 import { getServerAuthSession } from '~/server/common/get-server-auth-session';
+import { Icons } from '~/components/ui';
+import { Seo } from '~/components';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const session = await getServerAuthSession(ctx);

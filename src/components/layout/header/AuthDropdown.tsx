@@ -1,5 +1,5 @@
-import { signOut } from 'next-auth/react';
 import Link from 'next/link';
+import { signOut } from 'next-auth/react';
 
 import { Dropdown, ExternalLink, Icons, Skeleton } from '~/components/ui';
 
