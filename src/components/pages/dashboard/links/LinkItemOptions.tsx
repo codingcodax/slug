@@ -24,11 +24,15 @@ const LinkItemOptions = ({
   });
 
   const handleModal = (modal: 'edit' | 'delete') => {
-    if (modal === 'edit')
+    if (modal === 'edit') {
       setModalsState((prev) => ({ ...prev, editModal: !prev.editModal }));
+      return;
+    }
 
-    if (modal === 'delete')
+    if (modal === 'delete') {
       setModalsState((prev) => ({ ...prev, deleteModal: !prev.deleteModal }));
+      return;
+    }
   };
 
   return (
@@ -41,7 +45,9 @@ const LinkItemOptions = ({
         show={modalsState.editModal}
         slug={slug}
         url={url}
-        onClose={() => handleModal('edit')}
+        onClose={() =>
+          setModalsState((prev) => ({ ...prev, editModal: false }))
+        }
       />
     </div>
   );
