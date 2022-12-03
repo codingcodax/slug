@@ -5,7 +5,7 @@ const description =
   'slug is an open source link managment platform to short your links made for devs.';
 const domain = 'https://slug.codingcodax.dev';
 
-export const SEO: DefaultSeoProps = {
+const SEO: DefaultSeoProps = {
   title,
   description,
   canonical: domain,
@@ -71,6 +71,4 @@ export const SEO: DefaultSeoProps = {
   ],
 };
 
-export const additionalMetaTags = [];
-
-export const additionalLinkTags = [];
+export default SEO;
