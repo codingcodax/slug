@@ -74,7 +74,7 @@ const CreateForm = ({
         <button className='primary-button' type='submit'>
           {isLoading ? 'Shorting your link...' : 'Short your link'}
         </button>
-        <button className='secondary-link' onClick={onClose}>
+        <button className='secondary-link' type='button' onClick={onClose}>
           Cancel
         </button>
       </Form.Buttons>
