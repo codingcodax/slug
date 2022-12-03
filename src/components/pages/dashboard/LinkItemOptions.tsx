@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import type { LinkSchema } from '~/types/link';
 
-import EditModal from './EditModal';
+import { EditModal } from './modals';
 import OptionsDropdown from './OptionsDropdown';
 
 export interface LinkItemOptionsProps {
