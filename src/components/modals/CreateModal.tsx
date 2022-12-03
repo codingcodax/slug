@@ -22,6 +22,7 @@ const CreateModal = ({ show, onClose }: CreateModalProps) => {
 
   const { mutate: createLink } = trpc.link.create.useMutation({
     onSuccess: () => {
+      onClose();
       setIsLoading(false);
     },
     onError: () => {
