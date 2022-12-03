@@ -16,7 +16,7 @@ const Seo = ({
   ogImage = domain + '/og.png',
 }: SeoProps) => {
   const title = `${name} | slug`;
-  const url = `${domain}/${path}`;
+  const url = `${domain}${path}`;
 
   return (
     <NextSeo
