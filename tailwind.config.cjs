@@ -37,6 +37,7 @@ module.exports = {
           1200: '#ededef',
         },
         red: { 900: '#e5484d' },
+        green: { 900: '#30a46c' },
       },
     },
   },
