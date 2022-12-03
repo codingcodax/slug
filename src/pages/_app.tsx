@@ -9,7 +9,7 @@ import { trpc } from '~/utils/trpc';
 import '~/styles/globals.css';
 import Layout from '~/components/layout';
 
-import { SEO } from 'next-seo.config';
+import SEO from 'next-seo.config';
 
 const inter = Inter({
   subsets: ['latin'],
