@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
 import type { LinkSchema } from '~/types/link';
+import { EditModal } from '~/components/pages/dashboard/modals';
 
-import { EditModal } from './modals';
 import OptionsDropdown from './OptionsDropdown';
 
 export interface LinkItemOptionsProps {
