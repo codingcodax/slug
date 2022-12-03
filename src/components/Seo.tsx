@@ -1,9 +1,6 @@
 import { NextSeo } from 'next-seo';
 
-import {
-  description as defaultDescription,
-  domain,
-} from '../../next-seo.config';
+import { description as defaultDescription, domain } from 'next-seo.config';
 
 interface SeoProps {
   name: string;
