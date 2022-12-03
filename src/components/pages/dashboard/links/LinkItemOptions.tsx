@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import type { LinkSchema } from '~/types/link';
-import { EditModal } from '~/components/pages/dashboard/modals';
+import { EditModal } from '~/components/modals';
 
 import OptionsDropdown from './OptionsDropdown';
 
