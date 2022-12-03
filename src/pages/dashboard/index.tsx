@@ -3,6 +3,7 @@ import Link from 'next/link';
 import type { ChangeEvent } from 'react';
 import { useState } from 'react';
 
+import { Seo } from '~/components';
 import { AnyLinks, Links, Searchbar } from '~/components/pages/dashboard';
 import { Icons } from '~/components/ui';
 import { getServerAuthSession } from '~/server/common/get-server-auth-session';
@@ -32,27 +33,31 @@ const Dashboard = () => {
   };
 
   return (
-    <main className='mx-auto w-full max-w-6xl'>
-      <section className='mb-10 flex items-center justify-between'>
-        <h1 className='text-3xl font-medium'>Dashboard</h1>
-        <Link
-          className='outline-focus-visible flex items-center rounded-md px-4 py-2 hover:bg-mauve-400 focus-visible:bg-mauve-400 dark:hover:bg-mauveDark-400 dark:focus-visible:bg-mauveDark-400'
-          href='/dashboard/new'
-        >
-          <Icons.Plus className='mr-2 h-4 w-4' /> Create new link
-        </Link>
-      </section>
+    <>
+      <Seo name='Dashboard' path='/dashboard' />
 
-      <Searchbar
-        isDisabled={isLoading || links?.length === 0}
-        value={search}
-        onChange={handleSearch}
-      />
+      <main className='mx-auto w-full max-w-6xl'>
+        <section className='mb-10 flex items-center justify-between'>
+          <h1 className='text-3xl font-medium'>Dashboard</h1>
+          <Link
+            className='outline-focus-visible flex items-center rounded-md px-4 py-2 hover:bg-mauve-400 focus-visible:bg-mauve-400 dark:hover:bg-mauveDark-400 dark:focus-visible:bg-mauveDark-400'
+            href='/dashboard/new'
+          >
+            <Icons.Plus className='mr-2 h-4 w-4' /> Create new link
+          </Link>
+        </section>
 
-      {isLoading && <Links.Skeleton />}
-      {links && <Links links={filteredLinks} />}
-      {links?.length === 0 && <AnyLinks />}
-    </main>
+        <Searchbar
+          isDisabled={isLoading || links?.length === 0}
+          value={search}
+          onChange={handleSearch}
+        />
+
+        {isLoading && <Links.Skeleton />}
+        {links && <Links links={filteredLinks} />}
+        {links?.length === 0 && <AnyLinks />}
+      </main>
+    </>
   );
 };
 
