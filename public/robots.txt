@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://slug.codingcodax.dev/sitemap.xml
