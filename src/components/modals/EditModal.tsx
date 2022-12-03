@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import type { EditLinkSchema } from '~/types/link';
 import { trpc } from '~/utils/trpc';
 import { Modal } from '~/components/ui';
-import { EditForm } from '~/components/pages/dashboard/forms';
+import { EditForm } from '~/components/forms';
 
 interface EditModalProps extends EditLinkSchema {
   show: boolean;
