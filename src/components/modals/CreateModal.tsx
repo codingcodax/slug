@@ -16,6 +16,7 @@ const CreateModal = ({ show, onClose }: CreateModalProps) => {
     handleSubmit,
     register,
     setError,
+    setValue,
     formState: { errors },
   } = useForm<CreateLinkSchema>();
   const [isLoading, setIsLoading] = useState(false);
@@ -24,6 +25,9 @@ const CreateModal = ({ show, onClose }: CreateModalProps) => {
     onSuccess: () => {
       onClose();
       setIsLoading(false);
+      setValue('url', '');
+      setValue('slug', '');
+      setValue('description', '');
     },
     onError: () => {
       setIsLoading(false);
