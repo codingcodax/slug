@@ -1,10 +1,14 @@
-import { NextResponse, type NextRequest } from 'next/server';
+import {
+  type NextFetchEvent,
+  NextResponse,
+  type NextRequest,
+} from 'next/server';
 
 export const config = {
   matcher: ['/((?!api|_next|_proxy|_auth|_static|_vercel|[\\w-]+\\.\\w+).*)'],
 };
 
-const middleware = async (req: NextRequest) => {
+const middleware = async (req: NextRequest, ev: NextFetchEvent) => {
   const slug = req.nextUrl.pathname.split('/').pop();
 
   console.log('BEFORE??');
