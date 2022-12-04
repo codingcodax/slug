@@ -3,13 +3,6 @@ import { NextResponse, type NextRequest } from 'next/server';
 export const middleware = async (req: NextRequest) => {
   const slug = req.nextUrl.pathname.split('/').pop();
 
-  console.log(req.nextUrl.pathname);
-  if (
-    req.nextUrl.pathname === '/dashboard' ||
-    req.nextUrl.pathname === '/sign-in'
-  )
-    return;
-
   const slugFetch = await fetch(`${req.nextUrl.origin}/api/get-url/${slug}`);
 
   if (slugFetch.status === 404)
@@ -21,5 +14,5 @@ export const middleware = async (req: NextRequest) => {
 };
 
 export const config = {
-  matcher: ['/((?!api|_next|_static|_vercel|/dashboard|/sign-in).*)'],
+  matcher: ['/((?!api|_next|_static|_vercel|dashboard|sign-in).*)'],
 };
