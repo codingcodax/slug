@@ -1,5 +1,9 @@
 import { NextResponse, type NextRequest } from 'next/server';
 
+export const config = {
+  matcher: ['/((?!api|_next|_proxy|_auth|_static|_vercel|[\\w-]+\\.\\w+).*)'],
+};
+
 const middleware = async (req: NextRequest) => {
   const slug = req.nextUrl.pathname.split('/').pop();
 
@@ -15,10 +19,6 @@ const middleware = async (req: NextRequest) => {
   const data = await slugFetch.json();
 
   if (data?.url) return NextResponse.redirect(data.url);
-};
-
-export const config = {
-  matcher: ['/((?!api|_next|_proxy|_auth|_static|_vercel|[\\w-]+\\.\\w+).*)'],
 };
 
 export default middleware;
