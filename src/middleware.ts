@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from 'next/server';
 
-export const middleware = async (req: NextRequest) => {
+const middleware = async (req: NextRequest) => {
   const slug = req.nextUrl.pathname.split('/').pop();
 
   const slugFetch = await fetch(`${req.nextUrl.origin}/api/get-url/${slug}`);
@@ -16,3 +16,5 @@ export const middleware = async (req: NextRequest) => {
 export const config = {
   matcher: ['/((?!api|_next|_static|_vercel|dashboard|sign-in).*)'],
 };
+
+export default middleware;
