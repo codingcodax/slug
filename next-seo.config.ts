@@ -60,6 +60,10 @@ const SEO: DefaultSeoProps = {
       href: '/favicons/favicon-16x16.png',
     },
     {
+      rel: 'icon',
+      href: '/favicons/favicon.ico',
+    },
+    {
       rel: 'manifest',
       href: '/favicons/site.manifest',
     },
