@@ -1,28 +1,27 @@
-import {
-  type NextFetchEvent,
-  NextResponse,
-  type NextRequest,
-} from 'next/server';
+import { NextResponse, type NextRequest } from 'next/server';
 
-export const config = {
-  matcher: ['/((?!api|_next|_proxy|_auth|_static|_vercel|[\\w-]+\\.\\w+).*)'],
-};
+export const middleware = async (req: NextRequest) => {
+  const { origin: BASE_URL, pathname } = req.nextUrl;
+  const slug = pathname.split('/').pop();
 
-const middleware = async (req: NextRequest, ev: NextFetchEvent) => {
-  const slug = req.nextUrl.pathname.split('/').pop();
+  if (
+    pathname === '/' ||
+    pathname.startsWith('/_') ||
+    pathname.startsWith('/api')
+  )
+    return NextResponse.next();
 
-  console.log('BEFORE??');
-  if (slug === 'dashboard' || slug === 'sign-in') return;
-  console.log('AFTER??');
+  const slugFetch = await fetch(`${BASE_URL}/api/get-url/${slug}`);
 
-  const slugFetch = await fetch(`${req.nextUrl.origin}/api/get-url/${slug}`);
-
-  if (slugFetch.status === 404)
-    return NextResponse.redirect(req.nextUrl.origin);
+  if (slugFetch.status === 404) return NextResponse.redirect(BASE_URL);
 
   const data = await slugFetch.json();
 
   if (data?.url) return NextResponse.redirect(data.url);
 };
 
-export default middleware;
+export const config = {
+  matcher: [
+    '/((?!api|_next|_next/static|_proxy|_auth|_static|_vercel|dashboard|sign-in|[\\w-]+\\.\\w+).*)',
+  ],
+};
