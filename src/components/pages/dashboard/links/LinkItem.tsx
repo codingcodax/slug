@@ -3,6 +3,7 @@ import { ExternalLink, Skeleton } from '~/components/ui';
 
 import LinkItemOptions, { type LinkItemOptionsProps } from './LinkItemOptions';
 import CopyButton from './CopyButton';
+import Clicks from './Clicks';
 
 interface LinkItemProps {
   children: React.ReactNode;
@@ -19,12 +20,13 @@ const LinkItem = ({ children }: LinkItemProps) => {
 interface LinkItemSlugProps {
   children: React.ReactNode;
   slug: string;
+  clicks: number;
 }
 
 // eslint-disable-next-line react/display-name
-LinkItem.Slug = ({ children, slug }: LinkItemSlugProps) => {
+LinkItem.Slug = ({ children, slug, clicks }: LinkItemSlugProps) => {
   return (
-    <div className='flex items-center'>
+    <div className='flex items-center space-x-2'>
       <ExternalLink
         className='rounded-md text-xl hover:text-mauve-1200/80 focus:outline-none focus-visible:text-mauve-1200/80 focus-visible:underline focus-visible:decoration-wavy focus-visible:underline-offset-2 dark:hover:text-mauveDark-1200/80 dark:focus-visible:text-mauveDark-1200/80'
         href={`${getBaseUrl()}/${slug}`}
@@ -33,6 +35,8 @@ LinkItem.Slug = ({ children, slug }: LinkItemSlugProps) => {
       </ExternalLink>
 
       <CopyButton slug={`${getBaseUrl()}/${slug}`} />
+
+      <Clicks clicks={clicks} />
     </div>
   );
 };
