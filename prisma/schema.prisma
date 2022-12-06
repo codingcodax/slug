@@ -20,7 +20,7 @@ model Example {
 model Link {
   id          Int      @id @default(autoincrement())
   createdAt   DateTime @default(now())
-  url         String   @db.VarChar(2000)
+  url         String   @db.VarChar(800)
   slug        String   @unique
   description String?
   creatorId   String
