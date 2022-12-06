@@ -83,7 +83,7 @@ const EditForm = ({
         <button className='primary-button' type='submit'>
           {isLoading ? 'Updating your link' : 'Update your link'}
         </button>
-        <button className='secondary-link' onClick={onClose}>
+        <button className='secondary-link' type='button' onClick={onClose}>
           Cancel
         </button>
       </Form.Buttons>
