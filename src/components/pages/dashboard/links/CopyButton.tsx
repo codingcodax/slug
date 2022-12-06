@@ -21,7 +21,7 @@ const CopyButton = ({ slug }: CopyButtonProps) => {
 
   return (
     <button
-      className='ml-2 rounded-md p-1 transition-colors duration-200 hover:bg-mauve-400 active:bg-mauve-500 dark:hover:bg-mauveDark-400 dark:active:bg-mauveDark-500'
+      className='outline-focus-visible hover:jtransition-colors ml-2 rounded-md p-1 hover:bg-mauve-400 hover:duration-200 focus-visible:bg-mauve-400 active:bg-mauve-500 dark:hover:bg-mauveDark-400 dark:focus-visible:bg-mauveDark-400 dark:active:bg-mauveDark-500'
       type='button'
       onClick={handleCopy}
     >
