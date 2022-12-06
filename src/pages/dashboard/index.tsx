@@ -21,7 +21,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 };
 
 const Dashboard = () => {
-  const { data: links, isLoading } = trpc.link.getAll.useQuery();
+  const { data: links, isLoading, refetch } = trpc.link.getAll.useQuery();
   const [search, setSearch] = useState('');
   const [isNewModalOpen, setIsNewModalOpen] = useState(false);
 
@@ -62,7 +62,11 @@ const Dashboard = () => {
         {links && <Links links={filteredLinks} />}
         {links?.length === 0 && <AnyLinks />}
 
-        <CreateModal show={isNewModalOpen} onClose={handleModal} />
+        <CreateModal
+          refetch={refetch}
+          show={isNewModalOpen}
+          onClose={handleModal}
+        />
       </main>
     </>
   );
