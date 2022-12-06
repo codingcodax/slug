@@ -1,8 +1,12 @@
-const Clicks = () => {
+interface ClicksProps {
+  clicks: number;
+}
+
+const Clicks = ({ clicks }: ClicksProps) => {
   return (
-    <div>
-      <p>Clicks component</p>
-    </div>
+    <span className='text-sm text-mauve-1100 dark:text-mauveDark-1100'>
+      {clicks} clicks
+    </span>
   );
 };
 
