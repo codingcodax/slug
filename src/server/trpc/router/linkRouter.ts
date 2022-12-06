@@ -7,7 +7,9 @@ export const LinkSchema = z.object({
   url: z.string(),
   slug: z.string(),
   createdAt: z.date(),
-  creatorId: z.string(),
+  userId: z.string(),
+  clicks: z.number(),
+  clicksUpdatedAt: z.date(),
   description: z.string().nullish(),
 });
 
@@ -31,7 +33,7 @@ export const linkRouter = router({
       const newLink = ctx.prisma.link.create({
         data: {
           ...input,
-          creatorId: ctx.session.user.id,
+          userId: ctx.session.user.id,
         },
       });
 
@@ -44,7 +46,7 @@ export const linkRouter = router({
         where: { id: input.id },
         data: {
           ...input,
-          creatorId: ctx.session.user.id,
+          userId: ctx.session.user.id,
         },
       });
 
@@ -59,7 +61,7 @@ export const linkRouter = router({
     }),
   getAll: protectedProcedure.query(({ ctx }) => {
     return ctx.prisma.link.findMany({
-      where: { creatorId: ctx.session.user.id },
+      where: { userId: ctx.session.user.id },
     });
   }),
 });
