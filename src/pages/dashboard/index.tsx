@@ -1,5 +1,5 @@
 import type { ChangeEvent } from 'react';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { type GetServerSideProps } from 'next';
 
 import { trpc } from '~/utils/trpc';
@@ -25,9 +25,11 @@ const Dashboard = () => {
   const [search, setSearch] = useState('');
   const [isNewModalOpen, setIsNewModalOpen] = useState(false);
 
-  const filteredLinks = links?.filter((link) =>
-    link.slug.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredLinks = useMemo(() => {
+    return links?.filter((link) =>
+      link.slug.toLowerCase().includes(search.toLowerCase())
+    );
+  }, [search, links]);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
