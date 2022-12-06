@@ -18,14 +18,18 @@ model Example {
 }
 
 model Link {
-  id          Int      @id @default(autoincrement())
-  createdAt   DateTime @default(now())
-  url         String   @db.VarChar(800)
-  slug        String   @unique
-  description String?
-  creatorId   String
+  id             Int      @id @default(autoincrement())
+  createdAt      DateTime @default(now())
+  url            String   @db.VarChar(800)
+  slug           String   @unique
+  description    String?
+  clicks         Int      @default(0)
+  clickUpdatedAt DateTime @default(now())
+  userId         String
+  user           User     @relation(fields: [userId], references: [id])
 
   @@index(slug)
+  @@index([userId])
 }
 
 // Necessary for Next auth
@@ -67,6 +71,7 @@ model User {
   username      String?
   accounts      Account[]
   sessions      Session[]
+  Link          Link[]
 }
 
 model VerificationToken {
