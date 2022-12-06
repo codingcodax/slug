@@ -18,15 +18,15 @@ model Example {
 }
 
 model Link {
-  id             Int      @id @default(autoincrement())
-  createdAt      DateTime @default(now())
-  url            String   @db.VarChar(800)
-  slug           String   @unique
-  description    String?
-  clicks         Int      @default(0)
-  clickUpdatedAt DateTime @default(now())
-  userId         String
-  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id              Int      @id @default(autoincrement())
+  createdAt       DateTime @default(now())
+  url             String   @db.VarChar(800)
+  slug            String   @unique
+  description     String?
+  clicks          Int      @default(0)
+  clicksUpdatedAt DateTime @default(now())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index(slug)
   @@index([userId])
