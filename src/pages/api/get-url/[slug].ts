@@ -21,6 +21,15 @@ const getUrl = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
+  await prisma.link.update({
+    where: { id: data?.id },
+    data: {
+      ...data,
+      clicks: data.clicks + 1,
+      clicksUpdatedAt: new Date().toISOString(),
+    },
+  });
+
   res.setHeader('Content-Type', 'application/json');
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Cache-Control', 's-maxage=1000000000, stale-while-revalidate');
