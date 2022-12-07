@@ -40,25 +40,29 @@ const LinkItemOptions = ({
     <div className='absolute top-4 right-4'>
       <OptionsDropdown handleModal={handleModal} slug={slug} />
 
-      <EditModal
-        description={description}
-        id={id}
-        show={modalsState.editModal}
-        slug={slug}
-        url={url}
-        onClose={() =>
-          setModalsState((prev) => ({ ...prev, editModal: false }))
-        }
-      />
+      {modalsState.editModal && (
+        <EditModal
+          description={description}
+          id={id}
+          show={modalsState.editModal}
+          slug={slug}
+          url={url}
+          onClose={() =>
+            setModalsState((prev) => ({ ...prev, editModal: false }))
+          }
+        />
+      )}
 
-      <DeleteModal
-        id={id}
-        show={modalsState.deleteModal}
-        slug={slug}
-        onClose={() =>
-          setModalsState((prev) => ({ ...prev, deleteModal: false }))
-        }
-      />
+      {modalsState.deleteModal && (
+        <DeleteModal
+          id={id}
+          show={modalsState.deleteModal}
+          slug={slug}
+          onClose={() =>
+            setModalsState((prev) => ({ ...prev, deleteModal: false }))
+          }
+        />
+      )}
     </div>
   );
 };
