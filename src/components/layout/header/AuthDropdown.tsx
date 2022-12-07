@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { signOut } from 'next-auth/react';
+import { useAtom } from 'jotai';
 
+import { isOpenAtom } from '~/store/createModal';
 import { Dropdown, ExternalLink, Icons, Skeleton } from '~/components/ui';
 
 interface AuthDropdownProps {
@@ -9,6 +11,8 @@ interface AuthDropdownProps {
 }
 
 const AuthDropdown = ({ isLoading, username }: AuthDropdownProps) => {
+  const [, setIsOpen] = useAtom(isOpenAtom);
+
   return (
     <Dropdown>
       <Dropdown.Title>
@@ -22,10 +26,14 @@ const AuthDropdown = ({ isLoading, username }: AuthDropdownProps) => {
       </Dropdown.Title>
       <Dropdown.Items>
         <Dropdown.Item>
-          <Link className='dropdown-item' href='/dashboard/new'>
+          <button
+            className='dropdown-item'
+            type='button'
+            onClick={() => setIsOpen(true)}
+          >
             <Icons.Plus className='mr-2 h-4 w-4' />
             Create new link
-          </Link>
+          </button>
         </Dropdown.Item>
 
         <Dropdown.Item>
