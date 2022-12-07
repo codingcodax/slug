@@ -1,9 +1,11 @@
 import type { ChangeEvent } from 'react';
 import { useMemo, useState } from 'react';
 import { type GetServerSideProps } from 'next';
+import { useAtom } from 'jotai';
 
 import { trpc } from '~/utils/trpc';
 import { getServerAuthSession } from '~/server/common/get-server-auth-session';
+import { isOpenAtom } from '~/store/createModal';
 import { Seo } from '~/components';
 import { Icons } from '~/components/ui';
 import { AnyLinks, Links, Searchbar } from '~/components/pages/dashboard';
@@ -23,7 +25,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 const Dashboard = () => {
   const { data: links, isLoading, refetch } = trpc.link.getAll.useQuery();
   const [search, setSearch] = useState('');
-  const [isNewModalOpen, setIsNewModalOpen] = useState(false);
+  const [isOpen, setIsOpen] = useAtom(isOpenAtom);
 
   const filteredLinks = useMemo(() => {
     return links?.filter((link) =>
@@ -35,7 +37,7 @@ const Dashboard = () => {
     setSearch(e.target.value);
   };
 
-  const handleModal = () => setIsNewModalOpen((prev) => !prev);
+  const handleModal = () => setIsOpen((prev) => !prev);
 
   return (
     <>
@@ -62,11 +64,7 @@ const Dashboard = () => {
         {links && <Links links={filteredLinks} />}
         {links?.length === 0 && <AnyLinks />}
 
-        <CreateModal
-          refetch={refetch}
-          show={isNewModalOpen}
-          onClose={handleModal}
-        />
+        <CreateModal refetch={refetch} show={isOpen} onClose={handleModal} />
       </main>
     </>
   );
