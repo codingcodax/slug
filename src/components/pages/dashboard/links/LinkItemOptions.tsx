@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import type { LinkSchema } from '~/types/link';
 import { EditModal } from '~/components/modals';
+import DeleteModal from '~/components/modals/DeleteModal';
 
 import OptionsDropdown from './OptionsDropdown';
 
@@ -47,6 +48,15 @@ const LinkItemOptions = ({
         url={url}
         onClose={() =>
           setModalsState((prev) => ({ ...prev, editModal: false }))
+        }
+      />
+
+      <DeleteModal
+        id={id}
+        show={modalsState.deleteModal}
+        slug={slug}
+        onClose={() =>
+          setModalsState((prev) => ({ ...prev, deleteModal: false }))
         }
       />
     </div>
