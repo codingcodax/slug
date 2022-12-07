@@ -11,7 +11,7 @@ interface LinkItemProps {
 
 const LinkItem = ({ children }: LinkItemProps) => {
   return (
-    <li className='relative overflow-x-hidden rounded-md border border-mauve-600 p-4 transition-colors duration-200 hover:border-mauve-700 dark:border-mauveDark-600 dark:hover:border-mauveDark-700'>
+    <li className='relative rounded-md border border-mauve-600 p-4 transition-colors duration-200 hover:border-mauve-700 dark:border-mauveDark-600 dark:hover:border-mauveDark-700'>
       {children}
     </li>
   );
@@ -56,7 +56,7 @@ interface LinkItemDescriptionProps {
 
 // eslint-disable-next-line react/display-name
 LinkItem.Description = ({ children }: LinkItemDescriptionProps) => {
-  return <p className='mt-2 truncate'>{children || 'No description'}</p>;
+  return <p className='mt-2'>{children || 'No description'}</p>;
 };
 
 // eslint-disable-next-line react/display-name
