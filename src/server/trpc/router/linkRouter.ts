@@ -26,6 +26,10 @@ export const EditLinkSchema = z.object({
   description: z.string().nullish(),
 });
 
+export const DeleteLinkSchema = z.object({
+  id: z.number(),
+});
+
 export const linkRouter = router({
   create: protectedProcedure
     .input(CreateLinkSchema)
@@ -51,6 +55,15 @@ export const linkRouter = router({
       });
 
       return newLink;
+    }),
+  delete: protectedProcedure
+    .input(DeleteLinkSchema)
+    .mutation(async ({ ctx, input }) => {
+      const deletedLink = ctx.prisma.link.delete({
+        where: { id: input.id },
+      });
+
+      return deletedLink;
     }),
   get: protectedProcedure
     .input(z.object({ slug: z.string() }))
