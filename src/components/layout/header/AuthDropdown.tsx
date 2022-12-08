@@ -20,7 +20,7 @@ const AuthDropdown = ({ isLoading, username }: AuthDropdownProps) => {
           <Skeleton className='h-6 w-[70px]' />
         ) : (
           <>
-            {username} <Icons.ChevronDown className='ml-2 h-4 w-4' />
+            &#x40;{username} <Icons.ChevronDown className='ml-2 h-4 w-4' />
           </>
         )}
       </Dropdown.Title>
