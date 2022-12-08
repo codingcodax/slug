@@ -1,17 +1,21 @@
-import Link from 'next/link';
+import { useAtom } from 'jotai';
 
 import { Icons } from '~/components/ui';
+import { isOpenAtom } from '~/store/createModal';
 
 const AnyLinks = () => {
+  const [, setIsOpen] = useAtom(isOpenAtom);
+
   return (
     <section className='flex flex-col items-center'>
       <p>You don&apos;t have any links.</p>
-      <Link
+      <button
         className='outline-focus-visible mt-2 flex items-center rounded-md px-4 py-2 hover:bg-mauve-400 hover:transition-colors hover:duration-200 focus-visible:bg-mauve-400 dark:hover:bg-mauveDark-400 dark:focus-visible:bg-mauveDark-400'
-        href='/dashboard/new'
+        type='button'
+        onClick={() => setIsOpen(true)}
       >
         <Icons.Plus className='mr-2 h-4 w-4' /> Create one first
-      </Link>
+      </button>
     </section>
   );
 };
