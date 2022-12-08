@@ -44,6 +44,13 @@ const AuthDropdown = ({ isLoading, username }: AuthDropdownProps) => {
         </Dropdown.Item>
 
         <Dropdown.Item>
+          <Link className='dropdown-item' href='/profile'>
+            <Icons.User className='mr-2 h-4 w-4' />
+            Profile
+          </Link>
+        </Dropdown.Item>
+
+        <Dropdown.Item>
           <ExternalLink
             className='dropdown-item'
             href='https://github.com/codingcodax/slug/issues'
