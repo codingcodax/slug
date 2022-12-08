@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 
 import type { DeleteLinkSchema, LinkSchema } from '~/types/link';
 import { trpc } from '~/utils/trpc';
-import { Modal } from '~/components/ui';
+import { Icons, Modal } from '~/components/ui';
 import DeleteForm from '~/components/forms/DeleteForm';
 
 interface DeleteModalProps extends DeleteLinkSchema {
@@ -45,6 +45,14 @@ const DeleteModal = ({ id, slug, show, onClose }: DeleteModalProps) => {
       <Modal.Title>Delete: {slug}</Modal.Title>
       <Modal.Description>Remove the link permanently</Modal.Description>
       <Modal.Body>
+        <div className='mb-4 flex items-center text-sm text-amber-900'>
+          <Icons.AlertCircle className='mr-2 h-4 w-4 stroke-amber-900' />
+          <p>
+            This action <strong>cannot</strong> be undone. This will permanently
+            delete the <strong>/{slug}</strong> link
+          </p>
+        </div>
+
         <DeleteForm
           idError={errors.id?.message || ''}
           isDisabled={isValid ? false : true}
