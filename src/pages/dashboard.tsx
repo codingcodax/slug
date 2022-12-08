@@ -28,8 +28,10 @@ const Dashboard = () => {
   const [isOpen, setIsOpen] = useAtom(isOpenAtom);
 
   const filteredLinks = useMemo(() => {
-    return links?.filter((link) =>
-      link.slug.toLowerCase().includes(search.toLowerCase())
+    return links?.filter(
+      (link) =>
+        link.slug.toLowerCase().includes(search.toLowerCase()) ||
+        link.url.toLowerCase().includes(search.toLowerCase())
     );
   }, [search, links]);
 
