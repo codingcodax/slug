@@ -14,6 +14,7 @@ import {
   Plus,
   Search,
   Trash2,
+  User,
 } from 'lucide-react';
 
 const Icons = {
@@ -32,6 +33,7 @@ const Icons = {
   Plus,
   Search,
   Trash2,
+  User,
 };
 
 export default Icons;
