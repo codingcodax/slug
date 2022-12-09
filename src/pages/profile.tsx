@@ -2,6 +2,7 @@ import type { GetServerSideProps } from 'next';
 import type { Session } from 'next-auth';
 
 import { User, Stats, DeleteUser } from '~/components/pages/profile';
+import { Skeleton } from '~/components/ui';
 import { getServerAuthSession } from '~/server/common/get-server-auth-session';
 import { trpc } from '~/utils/trpc';
 
@@ -54,6 +55,7 @@ const ProfileSkeleton = () => {
       {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
       {/* @ts-ignore */}
       <User.Skeleton />
+      <Skeleton className='h-[40px] w-[184px] rounded-md' />
       <Stats.Skeleton />
     </main>
   );
