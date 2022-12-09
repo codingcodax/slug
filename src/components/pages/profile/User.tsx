@@ -23,6 +23,8 @@ const User = ({ name, username, imageUrl }: UserProps) => {
   );
 };
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 // eslint-disable-next-line react/display-name
 User.Skeleton = () => {
   return (
