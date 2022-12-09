@@ -1,7 +1,7 @@
 import type { GetServerSideProps } from 'next';
 import type { Session } from 'next-auth';
 
-import { User, Stats, DeleteUser } from '~/components/pages/profile';
+import { User, Stats, DeleteUser } from '~/components/pages/account';
 import { Skeleton } from '~/components/ui';
 import { getServerAuthSession } from '~/server/common/get-server-auth-session';
 import { trpc } from '~/utils/trpc';
@@ -17,17 +17,17 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   return { props: { user: session.user } };
 };
 
-interface ProfileProps {
+interface AccountProps {
   user?: Session['user'];
 }
 
-const Profile = ({ user }: ProfileProps) => {
+const Account = ({ user }: AccountProps) => {
   const { data: links, isLoading } = trpc.link.getAll.useQuery();
   const totalLinks = links?.length;
   const totalClicks = links?.reduce((pv, cv) => cv.clicks + pv, 0);
   const mostClicked = links?.sort((a, b) => a.clicks - b.clicks)[0];
 
-  if (isLoading || !user) return <ProfileSkeleton />;
+  if (isLoading || !user) return <AccountSkeleton />;
 
   return (
     <main className='mx-auto mt-10 flex w-full max-w-6xl flex-col items-center space-y-10'>
@@ -49,7 +49,7 @@ const Profile = ({ user }: ProfileProps) => {
   );
 };
 
-const ProfileSkeleton = () => {
+const AccountSkeleton = () => {
   return (
     <main className='mx-auto mt-10 flex w-full max-w-6xl flex-col items-center space-y-11'>
       {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
@@ -61,4 +61,4 @@ const ProfileSkeleton = () => {
   );
 };
 
-export default Profile;
+export default Account;

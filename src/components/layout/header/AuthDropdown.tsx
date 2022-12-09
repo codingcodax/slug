@@ -44,9 +44,9 @@ const AuthDropdown = ({ isLoading, username }: AuthDropdownProps) => {
         </Dropdown.Item>
 
         <Dropdown.Item>
-          <Link className='dropdown-item' href='/profile'>
+          <Link className='dropdown-item' href='/account'>
             <Icons.User className='mr-2 h-4 w-4' />
-            Profile
+            Account
           </Link>
         </Dropdown.Item>
 
