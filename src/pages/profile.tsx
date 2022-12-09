@@ -1,7 +1,7 @@
 import type { GetServerSideProps } from 'next';
 import type { Session } from 'next-auth';
 
-import { User, Stats } from '~/components/pages/profile';
+import { User, Stats, DeleteUser } from '~/components/pages/profile';
 import { getServerAuthSession } from '~/server/common/get-server-auth-session';
 import { trpc } from '~/utils/trpc';
 
@@ -31,10 +31,12 @@ const Profile = ({ user }: ProfileProps) => {
   return (
     <main className='mx-auto mt-10 flex w-full max-w-6xl flex-col items-center space-y-10'>
       <User
-        imageUrl={user?.image || ''}
-        name={user?.name || ''}
-        username={user?.username || ''}
+        imageUrl={user.image || null}
+        name={user.name || null}
+        username={user.username || null}
       />
+
+      <DeleteUser id={user.id} username={user.username || null} />
 
       <Stats
         clicks={totalClicks || 0}
@@ -49,6 +51,8 @@ const Profile = ({ user }: ProfileProps) => {
 const ProfileSkeleton = () => {
   return (
     <main className='mx-auto mt-10 flex w-full max-w-6xl flex-col items-center space-y-11'>
+      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+      {/* @ts-ignore */}
       <User.Skeleton />
       <Stats.Skeleton />
     </main>
