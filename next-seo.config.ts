@@ -16,7 +16,14 @@ const SEO: DefaultSeoProps = {
     title,
     description,
     siteName: 'title',
-    images: [],
+    images: [
+      {
+        url: `${domain}/og.png`,
+        alt: 'title',
+        width: 1200,
+        height: 675,
+      },
+    ],
   },
   twitter: {
     handle: '@codingcodax',
