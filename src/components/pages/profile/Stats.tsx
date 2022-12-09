@@ -1,4 +1,4 @@
-import { ExternalLink } from '~/components/ui';
+import { ExternalLink, Skeleton } from '~/components/ui';
 
 interface StatsProps {
   links: number;
@@ -19,6 +19,15 @@ const Stats = ({ links, clicks, url, slug }: StatsProps) => {
         /{slug}
       </ExternalLink>
     </p>
+  );
+};
+
+// eslint-disable-next-line react/display-name
+Stats.Skeleton = () => {
+  return (
+    <div className='flex w-full flex-col items-center space-y-2'>
+      <Skeleton className='w-2/4' />
+    </div>
   );
 };
 
