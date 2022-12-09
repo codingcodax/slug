@@ -18,6 +18,7 @@
 </p>
 
 ## Preview
+
 ![slug website preview](./.github/assets/slug-preview.png)
 
 ## Features
@@ -29,13 +30,13 @@
 ### Techstack
 
 This app was built with the T3 Stack:
+
 - [Next.js](https://nextjs.org)
 - [tRPC](https://trpc.io)
 - [Tailwind CSS](https://tailwindcss.com)
 - [TypeScript](https://typescriptlang.org)
 - [Prisma](https://prisma.io)
 - [NextAuth.js](https://next-auth.js.org)
-
 
 ## License
 
