@@ -1,8 +1,31 @@
-const DeleteUser = () => {
+import type { User } from '@prisma/client';
+import { useState } from 'react';
+
+import { DeleteUserModal } from '~/components/modals';
+import type { DeleteUserSchema } from '~/types/user';
+
+interface DeleteUserProps extends DeleteUserSchema {
+  username: User['username'];
+}
+
+const DeleteUser = ({ id, username }: DeleteUserProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div>
-      <p>Delete User component</p>
-    </div>
+    <>
+      <button className='primary-button' onClick={() => setIsOpen(true)}>
+        Delete your account
+      </button>
+
+      {isOpen && (
+        <DeleteUserModal
+          id={id}
+          show={isOpen}
+          username={username}
+          onClose={() => setIsOpen(false)}
+        />
+      )}
+    </>
   );
 };
 
