@@ -8,10 +8,10 @@ interface UserProps {
 
 const User = ({ name, username, imageUrl }: UserProps) => {
   return (
-    <section>
+    <div className='flex flex-col items-center space-y-2 rounded-sm'>
       <Image alt={`${name} profile`} height={100} src={imageUrl} width={100} />
       <p>&#x40;{username}</p>
-    </section>
+    </div>
   );
 };
 
