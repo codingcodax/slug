@@ -1,8 +1,9 @@
 import type { GetServerSideProps } from 'next';
 import type { Session } from 'next-auth';
 
-import { User } from '~/components/pages/profile';
+import { User, Stats } from '~/components/pages/profile';
 import { getServerAuthSession } from '~/server/common/get-server-auth-session';
+import { trpc } from '~/utils/trpc';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const session = await getServerAuthSession(ctx);
@@ -20,13 +21,36 @@ interface ProfileProps {
 }
 
 const Profile = ({ user }: ProfileProps) => {
+  const { data: links, isLoading } = trpc.link.getAll.useQuery();
+  const totalLinks = links?.length;
+  const totalClicks = links?.reduce((pv, cv) => cv.clicks + pv, 0);
+  const mostClicked = links?.sort((a, b) => a.clicks - b.clicks)[0];
+
+  if (isLoading || !user) return <ProfileSkeleton />;
+
   return (
-    <main className='mx-auto mt-10 grid w-full max-w-6xl grid-cols-[auto_1fr] gap-10'>
+    <main className='mx-auto mt-10 flex w-full max-w-6xl flex-col items-center space-y-10'>
       <User
         imageUrl={user?.image || ''}
         name={user?.name || ''}
         username={user?.username || ''}
       />
+
+      <Stats
+        clicks={totalClicks || 0}
+        links={totalLinks || 0}
+        slug={mostClicked?.slug || ''}
+        url={mostClicked?.url || ''}
+      />
+    </main>
+  );
+};
+
+const ProfileSkeleton = () => {
+  return (
+    <main className='mx-auto mt-10 flex w-full max-w-6xl flex-col items-center space-y-11'>
+      <User.Skeleton />
+      <Stats.Skeleton />
     </main>
   );
 };
