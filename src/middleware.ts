@@ -7,7 +7,8 @@ export const middleware = async (req: NextRequest) => {
   if (
     pathname === '/' ||
     pathname.startsWith('/_') ||
-    pathname.startsWith('/api')
+    pathname.startsWith('/api') ||
+    pathname.startsWith('en')
   )
     return NextResponse.next();
 
