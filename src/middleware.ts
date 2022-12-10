@@ -22,6 +22,6 @@ export const middleware = async (req: NextRequest) => {
 
 export const config = {
   matcher: [
-    '/((?!api|_next|_next/static|_proxy|_auth|_static|_vercel|dashboard|sign-in|account|[\\w-]+\\.\\w+).*)',
+    '/((?!api|_next|en|_proxy|_auth|_static|_vercel|dashboard|sign-in|account|[\\w-]+\\.\\w+).*)',
   ],
 };
