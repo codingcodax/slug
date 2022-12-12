@@ -47,10 +47,8 @@ const DeleteForm = ({
       <Form.Buttons>
         <button
           className={cn(
-            'primary-button',
-            isDisabled
-              ? 'cursor-not-allowed opacity-25 hover:bg-mauve-1200 dark:hover:bg-mauveDark-1200'
-              : ''
+            'error-button',
+            isDisabled ? 'cursor-not-allowed opacity-40 hover:bg-red-900' : ''
           )}
           disabled={isDisabled}
           type='submit'

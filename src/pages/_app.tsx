@@ -4,6 +4,7 @@ import { Inter } from '@next/font/google';
 import { SessionProvider } from 'next-auth/react';
 import { ThemeProvider } from 'next-themes';
 import { DefaultSeo } from 'next-seo';
+import NextNProgress from 'nextjs-progressbar';
 
 import '~/styles/globals.css';
 import { trpc } from '~/utils/trpc';
@@ -28,6 +29,7 @@ const MyApp = ({
         >
           <Layout>
             <DefaultSeo {...SEO} />
+            <NextNProgress color='var(--progress-color)' />
             <Component {...pageProps} />
           </Layout>
         </div>

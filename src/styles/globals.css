@@ -11,7 +11,7 @@
 @layer components {
   .primary-link,
   .primary-button {
-    @apply inline-block rounded-md bg-mauve-1200 py-2 px-4 text-center text-mauve-100 transition-colors duration-200 hover:bg-mauve-1200/90 focus:outline-none focus-visible:outline-dashed focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-mauve-400 dark:bg-mauveDark-1200 dark:text-mauveDark-100 dark:hover:bg-mauveDark-1200/90 dark:focus-visible:outline-mauveDark-1200;
+    @apply inline-block rounded-md bg-mauve-1200 py-2 px-4 text-center text-mauve-100 transition-colors duration-200 hover:bg-mauve-1200/90 focus:outline-none focus-visible:outline-dashed focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-mauve-1200 dark:bg-mauveDark-1200 dark:text-mauveDark-100 dark:hover:bg-mauveDark-1200/90 dark:focus-visible:outline-mauveDark-1200;
   }
 
   .secondary-link,
@@ -19,8 +19,12 @@
     @apply inline-block rounded-md border border-mauve-700 py-2 px-4 text-center transition-colors duration-200 hover:border-mauve-800 hover:bg-mauve-400 focus:outline-none focus-visible:outline-dashed focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-mauve-1200 dark:border-mauveDark-700 dark:hover:border-mauveDark-800 dark:hover:bg-mauveDark-400 dark:focus-visible:outline-mauveDark-1200;
   }
 
+  .error-button {
+    @apply inline-block rounded-md border border-red-900 bg-red-900 py-2 px-4 text-center text-mauve-1200 transition-colors duration-200 hover:bg-red-900/80 dark:text-mauveDark-1200;
+  }
+
   .dropdown-item {
-    @apply flex w-full flex-row items-center rounded px-3 py-2 text-left text-sm text-mauve-1100 transition-colors duration-200 hover:bg-mauve-400 ui-active:bg-mauve-400 dark:text-mauveDark-1100 dark:hover:bg-mauveDark-400 dark:ui-active:bg-mauveDark-400;
+    @apply flex w-full flex-row items-center rounded px-3 py-2 text-left text-sm text-mauve-1200 transition-colors duration-200 hover:bg-mauve-400 ui-active:bg-mauve-400 dark:text-mauveDark-1200 dark:hover:bg-mauveDark-400 dark:ui-active:bg-mauveDark-400;
   }
 
   .input {
