@@ -36,6 +36,6 @@ export const config = {
      * 5. /_vercel (Vercel internals)
      * 6. all root files inside /public (e.g. /favicon.ico)
      */
-    '/((?!api|en|_next|_static|_vercel|[\\w-]+\\.\\w+).*)',
+    '/((?!api|en|_next|_static|static|_vercel|[\\w-]+\\.\\w+).*)',
   ],
 };
