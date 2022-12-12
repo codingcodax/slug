@@ -29,6 +29,7 @@
     "next-auth": "^4.18.0",
     "next-seo": "^5.15.0",
     "next-themes": "^0.2.1",
+    "nextjs-progressbar": "^0.0.16",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.40.0",
