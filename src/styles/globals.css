@@ -20,7 +20,7 @@
   }
 
   .dropdown-item {
-    @apply flex w-full flex-row items-center rounded px-3 py-2 text-left text-sm text-mauve-1100 transition-colors duration-200 hover:bg-mauve-400 ui-active:bg-mauve-400 dark:text-mauveDark-1100 dark:hover:bg-mauveDark-400 dark:ui-active:bg-mauveDark-400;
+    @apply flex w-full flex-row items-center rounded px-3 py-2 text-left text-sm text-mauve-1200 transition-colors duration-200 hover:bg-mauve-400 ui-active:bg-mauve-400 dark:text-mauveDark-1200 dark:hover:bg-mauveDark-400 dark:ui-active:bg-mauveDark-400;
   }
 
   .input {
