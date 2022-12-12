@@ -18,7 +18,7 @@ const SEO: DefaultSeoProps = {
     siteName: 'title',
     images: [
       {
-        url: `${domain}/og.png`,
+        url: `${domain}/_static/og.png`,
         alt: 'title',
         width: 1200,
         height: 675,
