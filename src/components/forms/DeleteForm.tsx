@@ -49,7 +49,7 @@ const DeleteForm = ({
           className={cn(
             'primary-button',
             isDisabled
-              ? 'cursor-not-allowed opacity-25 hover:bg-mauve-1200 dark:hover:bg-mauveDark-1200'
+              ? 'cursor-not-allowed opacity-40 hover:bg-mauve-1200 dark:hover:bg-mauveDark-1200'
               : ''
           )}
           disabled={isDisabled}

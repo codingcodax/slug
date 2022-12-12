@@ -14,7 +14,7 @@ const Searchbar = ({ value, onChange, isDisabled }: SearchbarProps) => {
     <div
       className={cn(
         'relative mb-4 w-full',
-        isDisabled ? 'cursor-not-allowed opacity-25' : ''
+        isDisabled ? 'cursor-not-allowed opacity-40' : ''
       )}
     >
       <div className='absolute top-0 left-0 flex h-[42px] w-10 items-center justify-center'>
