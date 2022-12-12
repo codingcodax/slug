@@ -11,7 +11,7 @@
 @layer components {
   .primary-link,
   .primary-button {
-    @apply inline-block rounded-md bg-mauve-1200 py-2 px-4 text-center text-mauve-100 transition-colors duration-200 hover:bg-mauve-1200/90 focus:outline-none focus-visible:outline-dashed focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-mauve-400 dark:bg-mauveDark-1200 dark:text-mauveDark-100 dark:hover:bg-mauveDark-1200/90 dark:focus-visible:outline-mauveDark-1200;
+    @apply inline-block rounded-md bg-mauve-1200 py-2 px-4 text-center text-mauve-100 transition-colors duration-200 hover:bg-mauve-1200/90 focus:outline-none focus-visible:outline-dashed focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-mauve-1200 dark:bg-mauveDark-1200 dark:text-mauveDark-100 dark:hover:bg-mauveDark-1200/90 dark:focus-visible:outline-mauveDark-1200;
   }
 
   .secondary-link,
