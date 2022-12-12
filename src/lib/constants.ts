@@ -3,6 +3,6 @@ export const RESERVED_KEYS = new Set([
   'static',
   'favicons',
   'en',
-  'dashbaord',
+  'dashboard',
   'sign-in',
 ]);
