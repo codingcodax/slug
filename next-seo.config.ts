@@ -52,31 +52,31 @@ const SEO: DefaultSeoProps = {
     {
       rel: 'apple-touch-icon',
       sizes: '180x180',
-      href: '/favicons/apple-touch-icon.png',
+      href: '/_static/favicons/apple-touch-icon.png',
     },
     {
       rel: 'icon',
       type: 'image/png',
       sizes: '32x32',
-      href: '/favicons/favicon-32x32.png',
+      href: '/_static/favicons/favicon-32x32.png',
     },
     {
       rel: 'icon',
       type: 'image/png',
       sizes: '16x16',
-      href: '/favicons/favicon-16x16.png',
+      href: '/_static/favicons/favicon-16x16.png',
     },
     {
       rel: 'icon',
-      href: '/favicons/favicon.ico',
+      href: '/_static/favicons/favicon.ico',
     },
     {
       rel: 'manifest',
-      href: '/favicons/site.manifest',
+      href: '/_static/favicons/site.manifest',
     },
     {
       rel: 'mask-icon',
-      href: '/favicons/safari-pinned-tab.svg',
+      href: '/_static/favicons/safari-pinned-tab.svg',
       color: '#0e0e11',
     },
   ],
