@@ -47,6 +47,10 @@ const SEO: DefaultSeoProps = {
       name: 'theme-color',
       content: '#0e0e11',
     },
+    {
+      name: 'msapplication-config',
+      content: '/_static/favicons/browserconfig.xml',
+    },
   ],
   additionalLinkTags: [
     {
