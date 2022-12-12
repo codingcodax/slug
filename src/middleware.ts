@@ -1,8 +1,10 @@
 import { NextResponse, type NextRequest } from 'next/server';
 
+import { RESERVED_KEYS } from './lib/constants';
+
 export const middleware = async (req: NextRequest) => {
   const { origin: BASE_URL, pathname } = req.nextUrl;
-  const slug = pathname.split('/').pop();
+  const slug = pathname.split('/').pop() || '';
 
   if (
     pathname === '/' ||
@@ -10,6 +12,14 @@ export const middleware = async (req: NextRequest) => {
     pathname.startsWith('/api')
   )
     return NextResponse.next();
+
+  if (pathname === '/') return NextResponse.next();
+  if (pathname.startsWith('/static')) {
+    return NextResponse.rewrite(
+      new URL('/_static' + pathname.split('/static')[1], req.url)
+    );
+  }
+  if (RESERVED_KEYS.has(slug)) return NextResponse.next();
 
   const slugFetch = await fetch(`${BASE_URL}/api/get-url/${slug}`);
 
