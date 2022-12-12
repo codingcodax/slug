@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from 'next/server';
 
-import { RESERVED_KEYS } from './lib/constants';
+import { RESERVED_PATHS } from './lib/constants';
 
 export const middleware = async (req: NextRequest) => {
   const { origin: BASE_URL, pathname } = req.nextUrl;
@@ -12,7 +12,7 @@ export const middleware = async (req: NextRequest) => {
       new URL('/_static' + pathname.split('/static')[1], req.url)
     );
   }
-  if (RESERVED_KEYS.has(slug)) return NextResponse.next();
+  if (RESERVED_PATHS.has(slug)) return NextResponse.next();
 
   const slugFetch = await fetch(`${BASE_URL}/api/get-url/${slug}`);
 

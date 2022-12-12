@@ -1,4 +1,4 @@
-export const RESERVED_KEYS = new Set([
+export const RESERVED_PATHS = new Set([
   'api',
   'static',
   'favicons',
