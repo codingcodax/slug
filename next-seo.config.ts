@@ -18,7 +18,7 @@ const SEO: DefaultSeoProps = {
     siteName: 'title',
     images: [
       {
-        url: `${domain}/og.png`,
+        url: `${domain}/_static/og.png`,
         alt: 'title',
         width: 1200,
         height: 675,
@@ -47,36 +47,40 @@ const SEO: DefaultSeoProps = {
       name: 'theme-color',
       content: '#0e0e11',
     },
+    {
+      name: 'msapplication-config',
+      content: '/_static/favicons/browserconfig.xml',
+    },
   ],
   additionalLinkTags: [
     {
       rel: 'apple-touch-icon',
       sizes: '180x180',
-      href: '/favicons/apple-touch-icon.png',
+      href: '/_static/favicons/apple-touch-icon.png',
     },
     {
       rel: 'icon',
       type: 'image/png',
       sizes: '32x32',
-      href: '/favicons/favicon-32x32.png',
+      href: '/_static/favicons/favicon-32x32.png',
     },
     {
       rel: 'icon',
       type: 'image/png',
       sizes: '16x16',
-      href: '/favicons/favicon-16x16.png',
+      href: '/_static/favicons/favicon-16x16.png',
     },
     {
       rel: 'icon',
-      href: '/favicons/favicon.ico',
+      href: '/_static/favicons/favicon.ico',
     },
     {
       rel: 'manifest',
-      href: '/favicons/site.manifest',
+      href: '/_static/favicons/site.manifest',
     },
     {
       rel: 'mask-icon',
-      href: '/favicons/safari-pinned-tab.svg',
+      href: '/_static/favicons/safari-pinned-tab.svg',
       color: '#0e0e11',
     },
   ],
