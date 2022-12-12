@@ -14,8 +14,6 @@ export const middleware = async (req: NextRequest) => {
   }
   if (RESERVED_KEYS.has(slug)) return NextResponse.next();
 
-  console.log('AFTER IF??', pathname);
-
   const slugFetch = await fetch(`${BASE_URL}/api/get-url/${slug}`);
 
   if (slugFetch.status === 404) return NextResponse.redirect(BASE_URL);
