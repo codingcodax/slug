@@ -20,7 +20,7 @@
   }
 
   .error-button {
-    @apply inline-block rounded-md border border-red-900 bg-red-900 py-2 px-4 text-center text-mauve-100 transition-colors duration-200 hover:bg-red-900/80 dark:text-mauveDark-100;
+    @apply inline-block rounded-md border border-red-900 bg-red-900 py-2 px-4 text-center text-mauve-1200 transition-colors duration-200 hover:bg-red-900/80 dark:text-mauveDark-1200;
   }
 
   .dropdown-item {
