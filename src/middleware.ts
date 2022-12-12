@@ -22,6 +22,15 @@ export const middleware = async (req: NextRequest) => {
 
 export const config = {
   matcher: [
-    '/((?!api|_next|_next/static|_proxy|_auth|_static|_vercel|dashboard|sign-in|account|[\\w-]+\\.\\w+).*)',
+    /*
+     * Match all paths except for:
+     * 1. /api routes
+     * 2. /_next (Next.js internals)
+     * 3. /_proxy & /_auth (special pages for OG tag proxying and password protection)
+     * 4. /_static (inside /public)
+     * 5. /_vercel (Vercel internals)
+     * 6. all root files inside /public (e.g. /favicon.ico)
+     */
+    '/((?!api|_next|_proxy|_auth|_static|_vercel|[\\w-]+\\.\\w+).*)',
   ],
 };
