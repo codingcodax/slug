@@ -6,13 +6,6 @@ export const middleware = async (req: NextRequest) => {
   const { origin: BASE_URL, pathname } = req.nextUrl;
   const slug = pathname.split('/').pop() || '';
 
-  if (
-    pathname === '/' ||
-    pathname.startsWith('/_') ||
-    pathname.startsWith('/api')
-  )
-    return NextResponse.next();
-
   if (pathname === '/') return NextResponse.next();
   if (pathname.startsWith('/static')) {
     return NextResponse.rewrite(
