@@ -54,6 +54,7 @@ const CreateModal = ({ show, onClose, refetch }: CreateModalProps) => {
         <CreateForm
           isLoading={isLoading}
           register={register}
+          setValue={setValue}
           slugError={errors.slug?.message || ''}
           urlError={errors.url?.message || ''}
           onClose={onClose}
