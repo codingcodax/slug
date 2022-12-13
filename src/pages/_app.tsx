@@ -24,7 +24,8 @@ const MyApp = ({
   return (
     <ThemeProvider attribute='class'>
       <SessionProvider session={session}>
-        <style jsx global>{`
+        {/* eslint-disable-next-line react/no-unknown-property */}
+        <style global jsx>{`
           html {
             font-family: ${inter.style.fontFamily};
           }
