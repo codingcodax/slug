@@ -85,10 +85,10 @@ Dropdown.ItemExternalLink = ({
   return (
     <Menu.Item
       as='a'
+      className='dropdown-item'
+      href={href}
       rel='noopener noreferrer'
       target='_blank'
-      href={href}
-      className='dropdown-item'
     >
       {children}
     </Menu.Item>
