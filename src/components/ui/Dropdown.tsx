@@ -71,4 +71,28 @@ interface DropdownItemProps {
 Dropdown.Item = ({ children }: DropdownItemProps) => {
   return <Menu.Item>{children}</Menu.Item>;
 };
+
+interface DropdownItemExternalLinkProps {
+  href: string;
+  children: React.ReactNode;
+}
+
+// eslint-disable-next-line react/display-name
+Dropdown.ItemExternalLink = ({
+  href,
+  children,
+}: DropdownItemExternalLinkProps) => {
+  return (
+    <Menu.Item
+      as='a'
+      rel='noopener noreferrer'
+      target='_blank'
+      href={href}
+      className='dropdown-item'
+    >
+      {children}
+    </Menu.Item>
+  );
+};
+
 export default Dropdown;
