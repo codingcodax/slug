@@ -3,7 +3,7 @@ import { signOut } from 'next-auth/react';
 import { useAtom } from 'jotai';
 
 import { isOpenAtom } from '~/store/createModal';
-import { Dropdown, ExternalLink, Icons, Skeleton } from '~/components/ui';
+import { Dropdown, Icons, Skeleton } from '~/components/ui';
 
 interface AuthDropdownProps {
   isLoading: boolean;
@@ -50,15 +50,10 @@ const AuthDropdown = ({ isLoading, username }: AuthDropdownProps) => {
           </Link>
         </Dropdown.Item>
 
-        <Dropdown.Item>
-          <ExternalLink
-            className='dropdown-item'
-            href='https://github.com/codingcodax/slug/issues'
-          >
-            <Icons.CircleDot className='mr-2 h-4 w-4' />
-            Report a bug
-          </ExternalLink>
-        </Dropdown.Item>
+        <Dropdown.ItemExternalLink href='https://github.com/codingcodax/slug/issues'>
+          <Icons.CircleDot className='mr-2 h-4 w-4' />
+          Report a bug
+        </Dropdown.ItemExternalLink>
 
         <Dropdown.Item>
           <button
