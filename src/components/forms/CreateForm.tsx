@@ -1,9 +1,9 @@
 import type { UseFormRegister, UseFormSetValue } from 'react-hook-form';
 
 import type { CreateLinkSchema } from '~/types/link';
-import generateRandomSlug from '~/utils/generateRandomSlug';
 import cn from '~/utils/cn';
-import { Form, Icons } from '~/components/ui';
+import generateRandomSlug from '~/utils/generateRandomSlug';
+import { Form } from '~/components/ui';
 
 import { urlValidation, slugValidation } from './validations';
 import Error from './Error';
