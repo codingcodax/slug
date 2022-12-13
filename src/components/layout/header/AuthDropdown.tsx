@@ -53,6 +53,7 @@ const AuthDropdown = ({ isLoading, username }: AuthDropdownProps) => {
         <Dropdown.ItemExternalLink href='https://github.com/codingcodax/slug/issues'>
           <Icons.CircleDot className='mr-2 h-4 w-4' />
           Report a bug
+          <Icons.ExternalLink className='ml-2 h-4 w-4 stroke-mauve-1100 dark:stroke-mauveDark-1100' />
         </Dropdown.ItemExternalLink>
 
         <Dropdown.Item>
