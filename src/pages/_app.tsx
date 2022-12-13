@@ -24,9 +24,12 @@ const MyApp = ({
   return (
     <ThemeProvider attribute='class'>
       <SessionProvider session={session}>
-        <div
-          className={`${inter.variable} grid min-h-screen grid-rows-[auto_1fr_auto] px-4 font-sans`}
-        >
+        <style jsx global>{`
+          html {
+            font-family: ${inter.style.fontFamily};
+          }
+        `}</style>
+        <div className='grid min-h-screen grid-rows-[auto_1fr_auto] px-4 font-sans'>
           <Layout>
             <DefaultSeo {...SEO} />
             <NextNProgress color='var(--progress-color)' />
