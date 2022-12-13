@@ -21,8 +21,10 @@ const DeleteModal = ({ id, slug, show, onClose }: DeleteModalProps) => {
   } = useForm<{ id: string }>();
   const [isLoading, setIsLoading] = useState(false);
 
+  const { refetch } = trpc.link.getAll.useQuery();
   const { mutate: deleteLink } = trpc.link.delete.useMutation({
     onSuccess: () => {
+      refetch();
       onClose();
       setIsLoading(false);
     },

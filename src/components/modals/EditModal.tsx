@@ -27,8 +27,10 @@ const EditModal = ({
   } = useForm<EditLinkSchema>();
   const [isLoading, setIsLoading] = useState(false);
 
+  const { refetch } = trpc.link.getAll.useQuery();
   const { mutate: editLink } = trpc.link.edit.useMutation({
     onSuccess: () => {
+      refetch();
       onClose();
       setIsLoading(false);
     },
