@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+html.dark {
+  --scroll-color: '#fff';
+}
+
+html.light {
+  --scroll-color: '#000';
+}
+
 @layer base {
   body {
     @apply bg-mauve-100 text-mauve-1200 dark:bg-mauveDark-100 dark:text-mauveDark-1200;
