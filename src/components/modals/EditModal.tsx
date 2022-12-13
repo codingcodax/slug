@@ -23,6 +23,7 @@ const EditModal = ({
     handleSubmit,
     register,
     setError,
+    setValue,
     formState: { errors },
   } = useForm<EditLinkSchema>();
   const [isLoading, setIsLoading] = useState(false);
@@ -58,6 +59,7 @@ const EditModal = ({
           description={description || ''}
           isLoading={isLoading}
           register={register}
+          setValue={setValue}
           slug={slug}
           slugError={errors.slug?.message || ''}
           url={url}
