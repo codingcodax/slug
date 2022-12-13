@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 html.dark {
-  --scroll-color: '#fff';
+  --progress-color: '#fff';
 }
 
 html.light {
-  --scroll-color: '#000';
+  --progress-color: '#000';
 }
 
 @layer base {
