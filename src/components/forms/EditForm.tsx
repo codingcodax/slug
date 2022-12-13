@@ -1,17 +1,20 @@
-import type { UseFormRegister } from 'react-hook-form';
+import type { UseFormRegister, UseFormSetValue } from 'react-hook-form';
 
 import type { EditLinkSchema } from '~/types/link';
 import cn from '~/utils/cn';
+import generateRandomSlug from '~/utils/generateRandomSlug';
 import { Form } from '~/components/ui';
 
 import { urlValidation, slugValidation } from './validations';
 import Error from './Error';
+import RandomizeButton from './RandomizeButton';
 
 interface EditFormProps {
   url: string;
   slug: string;
   description: string;
   urlError: string;
+  setValue: UseFormSetValue<EditLinkSchema>;
   slugError: string;
   register: UseFormRegister<EditLinkSchema>;
   isLoading: boolean;
@@ -24,12 +27,17 @@ const EditForm = ({
   slug,
   description,
   urlError,
+  setValue,
   slugError,
   register,
   isLoading,
   onSubmit,
   onClose,
 }: EditFormProps) => {
+  const handleRandomSlug = () => {
+    setValue('slug', generateRandomSlug());
+  };
+
   return (
     <Form onSubmit={onSubmit}>
       <Form.Items>
@@ -48,13 +56,17 @@ const EditForm = ({
         </Form.Item>
 
         <Form.Item>
-          <label htmlFor='slug'>
-            Enter your new slug:
-            <br />
-            <span className='text-sm text-mauve-1100 dark:text-mauveDark-1100'>
-              https://slug.codingcodax.dev/&#36;&#10100;your-slug&#10101;
-            </span>
-          </label>
+          <div className='flex items-end justify-between'>
+            <label htmlFor='slug'>
+              Enter your new slug:
+              <br />
+              <span className='text-sm text-mauve-1100 dark:text-mauveDark-1100'>
+                https://slug.codingcodax.dev/&#36;&#10100;your-slug&#10101;
+              </span>
+            </label>
+
+            <RandomizeButton onClick={handleRandomSlug} />
+          </div>
           <input
             className='input'
             defaultValue={slug}
