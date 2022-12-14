@@ -9,7 +9,7 @@ import { createModalIsOpenAtom } from '~/store/createModal';
 import { Seo } from '~/components';
 import { Icons } from '~/components/ui';
 import { AnyLinks, Links, Searchbar } from '~/components/pages/dashboard';
-import { EditModal } from '~/components/modals';
+import { EditModal, DeleteModal } from '~/components/modals';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const session = await getServerAuthSession(ctx);
@@ -66,6 +66,7 @@ const Dashboard = () => {
       </main>
 
       <EditModal />
+      <DeleteModal />
     </>
   );
 };
