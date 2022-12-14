@@ -13,6 +13,4 @@ export const editModalDataAtom = atom({
 export const deleteModalDataAtom = atom({
   id: -1,
   slug: '',
-  url: '',
-  description: '',
 });
