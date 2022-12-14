@@ -22,7 +22,7 @@ const MyApp = ({
   pageProps: { session, ...pageProps },
 }: AppProps<{ session: Session | null }>) => {
   return (
-    <ThemeProvider attribute='class'>
+    <ThemeProvider attribute='class' defaultTheme='system'>
       <SessionProvider session={session}>
         {/* eslint-disable-next-line react/no-unknown-property */}
         <style global jsx>{`
