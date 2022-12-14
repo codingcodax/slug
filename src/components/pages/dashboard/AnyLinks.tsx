@@ -1,10 +1,10 @@
 import { useAtom } from 'jotai';
 
 import { Icons } from '~/components/ui';
-import { isOpenAtom } from '~/store/createModal';
+import { createModalIsOpenAtom } from '~/store/createModal';
 
 const AnyLinks = () => {
-  const [, setIsOpen] = useAtom(isOpenAtom);
+  const [, setIsOpen] = useAtom(createModalIsOpenAtom);
 
   return (
     <section className='flex flex-col items-center'>
