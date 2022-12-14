@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAtom } from 'jotai';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 
 import { trpc } from '~/utils/trpc';
 import { Icons, Modal } from '~/components/ui';
@@ -22,6 +23,7 @@ const DeleteModal = () => {
   const { refetch } = trpc.link.getAll.useQuery();
   const { mutate: deleteLink } = trpc.link.delete.useMutation({
     onSuccess: () => {
+      toast.success('Your link was deleted!');
       refetch();
       setIsOpen(false);
       setIsLoading(false);

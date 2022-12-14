@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 
 import type { CreateLinkSchema } from '~/types/link';
 import { trpc } from '~/utils/trpc';
@@ -24,6 +25,7 @@ const CreateModal = ({ show, onClose }: CreateModalProps) => {
   const { refetch } = trpc.link.getAll.useQuery();
   const { mutate: createLink } = trpc.link.create.useMutation({
     onSuccess: () => {
+      toast.success('Your link was shortened!');
       refetch();
       onClose();
       setIsLoading(false);

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAtom } from 'jotai';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 
 import type { EditLinkSchema } from '~/types/link';
 import { editModalIsOpenAtom, editModalDataAtom } from '~/store/modals';
@@ -24,6 +25,7 @@ const EditModal = () => {
   const { refetch } = trpc.link.getAll.useQuery();
   const { mutate: editLink } = trpc.link.edit.useMutation({
     onSuccess: () => {
+      toast.success('Your link was updated!');
       refetch();
       setIsOpen(false);
       setIsLoading(false);

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { signOut } from 'next-auth/react';
 import type { User } from '@prisma/client';
+import { toast } from 'react-hot-toast';
 
 import type { DeleteUserSchema } from '~/types/user';
 import { trpc } from '~/utils/trpc';
@@ -30,6 +31,7 @@ const DeleteUserModal = ({
 
   const { mutate: deleteUser } = trpc.user.delete.useMutation({
     onSuccess: () => {
+      toast.success('Your account was deleted!');
       signOut({ callbackUrl: '/' });
       onClose();
       setIsLoading(false);
