@@ -29,7 +29,7 @@ const SignIn = () => {
           </p>
         </div>
         <button
-          className='flex items-center rounded-md bg-mauve-400 px-4 py-2 text-mauve-100 transition-colors duration-200 dark:bg-mauveDark-400 dark:text-mauveDark-1200 hover:dark:bg-mauveDark-500'
+          className='outline-focus-visible flex items-center rounded-md bg-mauveDark-400 px-4 py-2 text-mauve-100 hover:bg-mauveDark-500 hover:transition-colors hover:duration-200 focus-visible:bg-mauveDark-500 dark:text-mauveDark-1200'
           onClick={() => signIn('github', { callbackUrl: '/dashboard' })}
         >
           <Icons.Github className='mr-2 h-4 w-4' />
