@@ -21,8 +21,10 @@ const CreateModal = ({ show, onClose }: CreateModalProps) => {
   } = useForm<CreateLinkSchema>();
   const [isLoading, setIsLoading] = useState(false);
 
+  const { refetch } = trpc.link.getAll.useQuery();
   const { mutate: createLink } = trpc.link.create.useMutation({
     onSuccess: () => {
+      refetch();
       onClose();
       setIsLoading(false);
       setValue('url', '');
