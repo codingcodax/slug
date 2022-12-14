@@ -1,31 +1,29 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useAtom } from 'jotai';
 import { useForm } from 'react-hook-form';
 
-import type { DeleteLinkSchema, LinkSchema } from '~/types/link';
 import { trpc } from '~/utils/trpc';
 import { Icons, Modal } from '~/components/ui';
 import DeleteForm from '~/components/forms/DeleteForm';
+import { deleteModalIsOpenAtom, deleteModalDataAtom } from '~/store/modals';
 
-interface DeleteModalProps extends DeleteLinkSchema {
-  slug: LinkSchema['slug'];
-  show: boolean;
-  onClose: () => void;
-}
-
-const DeleteModal = ({ id, slug, show, onClose }: DeleteModalProps) => {
+const DeleteModal = () => {
+  const [isOpen, setIsOpen] = useAtom(deleteModalIsOpenAtom);
+  const [{ id, slug }] = useAtom(deleteModalDataAtom);
+  const [isLoading, setIsLoading] = useState(false);
   const {
     handleSubmit,
     register,
+    reset,
     setError,
     formState: { errors, isValid },
   } = useForm<{ id: string }>();
-  const [isLoading, setIsLoading] = useState(false);
 
   const { refetch } = trpc.link.getAll.useQuery();
   const { mutate: deleteLink } = trpc.link.delete.useMutation({
     onSuccess: () => {
       refetch();
-      onClose();
+      setIsOpen(false);
       setIsLoading(false);
     },
     onError: () => {
@@ -37,13 +35,17 @@ const DeleteModal = ({ id, slug, show, onClose }: DeleteModalProps) => {
     },
   });
 
+  useEffect(() => {
+    reset();
+  }, [isOpen, reset]);
+
   const onSubmit = () => {
     setIsLoading(true);
     deleteLink({ id });
   };
 
   return (
-    <Modal show={show} onClose={onClose}>
+    <Modal show={isOpen} onClose={() => setIsOpen(false)}>
       <Modal.Title>Delete: {slug}</Modal.Title>
       <Modal.Description>Remove the link permanently</Modal.Description>
       <Modal.Body>
@@ -61,7 +63,7 @@ const DeleteModal = ({ id, slug, show, onClose }: DeleteModalProps) => {
           isLoading={isLoading}
           register={register}
           slug={slug}
-          onClose={onClose}
+          onClose={() => setIsOpen(false)}
           onSubmit={handleSubmit(onSubmit)}
         />
       </Modal.Body>
