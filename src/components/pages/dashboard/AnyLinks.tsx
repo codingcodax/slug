@@ -1,7 +1,7 @@
 import { useAtom } from 'jotai';
 
 import { Icons } from '~/components/ui';
-import { createModalIsOpenAtom } from '~/store/createModal';
+import { createModalIsOpenAtom } from '~/store/modals';
 
 const AnyLinks = () => {
   const [, setIsOpen] = useAtom(createModalIsOpenAtom);

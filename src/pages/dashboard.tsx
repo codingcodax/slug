@@ -5,7 +5,7 @@ import { useAtom } from 'jotai';
 
 import { trpc } from '~/utils/trpc';
 import { getServerAuthSession } from '~/server/common/get-server-auth-session';
-import { createModalIsOpenAtom } from '~/store/createModal';
+import { createModalIsOpenAtom } from '~/store/modals';
 import { Seo } from '~/components';
 import { Icons } from '~/components/ui';
 import { AnyLinks, Links, Searchbar } from '~/components/pages/dashboard';

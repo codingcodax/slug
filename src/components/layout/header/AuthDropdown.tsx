@@ -3,7 +3,7 @@ import { signOut } from 'next-auth/react';
 import { useAtom } from 'jotai';
 import { useState } from 'react';
 
-import { createModalIsOpenAtom } from '~/store/createModal';
+import { createModalIsOpenAtom } from '~/store/modals';
 import { Dropdown, Icons, Skeleton } from '~/components/ui';
 import { AccountModal, CreateModal } from '~/components/modals';
 
