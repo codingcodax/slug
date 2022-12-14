@@ -9,10 +9,9 @@ import { CreateForm } from '~/components/forms';
 interface CreateModalProps {
   show: boolean;
   onClose: () => void;
-  refetch: () => void;
 }
 
-const CreateModal = ({ show, onClose, refetch }: CreateModalProps) => {
+const CreateModal = ({ show, onClose }: CreateModalProps) => {
   const {
     handleSubmit,
     register,
@@ -24,7 +23,6 @@ const CreateModal = ({ show, onClose, refetch }: CreateModalProps) => {
 
   const { mutate: createLink } = trpc.link.create.useMutation({
     onSuccess: () => {
-      refetch();
       onClose();
       setIsLoading(false);
       setValue('url', '');
