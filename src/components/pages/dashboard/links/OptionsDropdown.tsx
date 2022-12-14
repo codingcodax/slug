@@ -1,25 +1,10 @@
-import type { LinkSchema } from '~/types/link';
-import getBaseUrl from '~/utils/getBaseUrl';
 import { Dropdown, Icons } from '~/components/ui';
 
 interface OptionsDropdownProps {
-  slug: LinkSchema['slug'];
   openModal: (modal: 'edit' | 'delete') => void;
 }
 
-const OptionsDropdown = ({ slug, openModal }: OptionsDropdownProps) => {
-  const copytoclipboard = async (text: string) => {
-    try {
-      const clipboardItem = new ClipboardItem({
-        'text/plain': new Blob([text], { type: 'text/plain' }),
-      });
-
-      await navigator.clipboard.write([clipboardItem]);
-    } catch (error) {
-      await navigator.clipboard.writeText(text);
-    }
-  };
-
+const OptionsDropdown = ({ openModal }: OptionsDropdownProps) => {
   return (
     <Dropdown>
       <Dropdown.Title className='px-2'>
@@ -27,16 +12,6 @@ const OptionsDropdown = ({ slug, openModal }: OptionsDropdownProps) => {
       </Dropdown.Title>
 
       <Dropdown.Items>
-        <Dropdown.Item>
-          <button
-            className='dropdown-item'
-            onClick={() => copytoclipboard(`${getBaseUrl()}/${slug}`)}
-          >
-            <Icons.ClipboardCopy className='mr-2 h-4 w-4' />
-            Copy
-          </button>
-        </Dropdown.Item>
-
         <Dropdown.Item>
           <button className='dropdown-item' onClick={() => openModal('edit')}>
             <Icons.FileEdit className='mr-2 h-4 w-4' />
