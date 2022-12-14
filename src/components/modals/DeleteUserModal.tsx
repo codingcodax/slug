@@ -5,7 +5,7 @@ import type { User } from '@prisma/client';
 
 import type { DeleteUserSchema } from '~/types/user';
 import { trpc } from '~/utils/trpc';
-import { Modal } from '~/components/ui';
+import { Icons, Modal } from '~/components/ui';
 import DeleteUserForm from '~/components/forms/DeleteUserForm';
 
 interface DeleteUserModalProps extends DeleteUserSchema {
@@ -53,6 +53,14 @@ const DeleteUserModal = ({
       <Modal.Title>Delete accout</Modal.Title>
       <Modal.Description>Delete your account permanently</Modal.Description>
       <Modal.Body>
+        <div className='mb-4 flex items-center text-sm text-red-900'>
+          <Icons.AlertCircle className='mr-2 h-4 w-4 stroke-red-900' />
+          <p>
+            This action <strong>cannot</strong> be undone. This will permanently
+            delete the your account, shorten links and clicks.
+          </p>
+        </div>
+
         <DeleteUserForm
           idError={errors.id?.message || ''}
           isDisabled={isValid ? false : true}
