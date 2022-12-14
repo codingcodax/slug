@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import { signOut } from 'next-auth/react';
 import { useAtom } from 'jotai';
+import { useState } from 'react';
 
 import { isOpenAtom } from '~/store/createModal';
 import { Dropdown, Icons, Skeleton } from '~/components/ui';
 import { AccountModal } from '~/components/modals';
-import { useState } from 'react';
 
 interface AuthDropdownProps {
   isLoading: boolean;
@@ -48,8 +48,8 @@ const AuthDropdown = ({ isLoading, username }: AuthDropdownProps) => {
 
         <Dropdown.Item>
           <button
-            type='button'
             className='dropdown-item'
+            type='button'
             onClick={() => setAccountModalIsOpen(true)}
           >
             <Icons.User className='mr-2 h-4 w-4' />
