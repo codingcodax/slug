@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className='mx-auto w-full max-w-6xl'>
       <p className='py-4 text-center'>
-        Handcrafted with <span className='font-mono'>🤍</span> and{' '}
+        Handcrafted with <span className='font-mono dark:invert'>🖤</span> and{' '}
         <ExternalLink
           className='font-medium underline decoration-wavy underline-offset-2 transition-colors duration-200 hover:text-mauve-1200/80 focus:outline-none focus-visible:text-mauve-1200/80 dark:hover:text-mauveDark-1200/80 dark:focus-visible:text-mauveDark-1200/80'
           href='https://create.t3.gg/'
