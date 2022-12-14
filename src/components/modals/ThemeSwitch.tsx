@@ -5,7 +5,7 @@ import useHasMouted from '~/hooks/useHasMounted';
 
 const ThemeSwitch = () => {
   const hasMounted = useHasMouted();
-  const { theme, resolvedTheme, setTheme } = useTheme();
+  const { setTheme } = useTheme();
 
   return (
     <Dropdown>
