@@ -3,9 +3,9 @@ import { signOut } from 'next-auth/react';
 import { useAtom } from 'jotai';
 import { useState } from 'react';
 
-import { isOpenAtom } from '~/store/createModal';
+import { createModalIsOpenAtom } from '~/store/createModal';
 import { Dropdown, Icons, Skeleton } from '~/components/ui';
-import { AccountModal } from '~/components/modals';
+import { AccountModal, CreateModal } from '~/components/modals';
 
 interface AuthDropdownProps {
   isLoading: boolean;
@@ -14,7 +14,9 @@ interface AuthDropdownProps {
 
 const AuthDropdown = ({ isLoading, username }: AuthDropdownProps) => {
   const [accountModalIsOpen, setAccountModalIsOpen] = useState(false);
-  const [, setIsOpen] = useAtom(isOpenAtom);
+  const [createModalIsOpen, setCreateModalIsOpen] = useAtom(
+    createModalIsOpenAtom
+  );
 
   return (
     <Dropdown>
@@ -32,7 +34,7 @@ const AuthDropdown = ({ isLoading, username }: AuthDropdownProps) => {
           <button
             className='dropdown-item'
             type='button'
-            onClick={() => setIsOpen(true)}
+            onClick={() => setCreateModalIsOpen(true)}
           >
             <Icons.Plus className='mr-2 h-4 w-4' />
             Create new link
@@ -77,6 +79,11 @@ const AuthDropdown = ({ isLoading, username }: AuthDropdownProps) => {
       <AccountModal
         show={accountModalIsOpen}
         onClose={() => setAccountModalIsOpen(false)}
+      />
+
+      <CreateModal
+        show={createModalIsOpen}
+        onClose={() => setCreateModalIsOpen(false)}
       />
     </Dropdown>
   );
