@@ -19,16 +19,16 @@ html.light {
 @layer components {
   .primary-link,
   .primary-button {
-    @apply inline-block rounded-md bg-mauve-1200 py-2 px-4 text-center text-mauve-100 transition-colors duration-200 hover:bg-mauve-1200/90 focus:outline-none focus-visible:outline-dashed focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-mauve-1200 dark:bg-mauveDark-1200 dark:text-mauveDark-100 dark:hover:bg-mauveDark-1200/90 dark:focus-visible:outline-mauveDark-1200;
+    @apply outline-focus-visible inline-block rounded-md bg-mauve-1200 py-2 px-4 text-center text-mauve-100 hover:bg-mauve-1200/90 hover:transition-colors hover:duration-200 focus-visible:bg-mauve-1200/90 dark:bg-mauveDark-1200 dark:text-mauveDark-100 dark:hover:bg-mauveDark-1200/90 dark:focus-visible:bg-mauveDark-1200/90;
   }
 
   .secondary-link,
   .secondary-button {
-    @apply inline-block rounded-md border border-mauve-700 py-2 px-4 text-center transition-colors duration-200 hover:border-mauve-800 hover:bg-mauve-400 focus:outline-none focus-visible:outline-dashed focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-mauve-1200 dark:border-mauveDark-700 dark:hover:border-mauveDark-800 dark:hover:bg-mauveDark-400 dark:focus-visible:outline-mauveDark-1200;
+    @apply outline-focus-visible inline-block rounded-md border border-mauve-700 py-2 px-4 text-center hover:border-mauve-800 hover:bg-mauve-400 hover:transition-colors hover:duration-200 focus-visible:border-mauve-800 focus-visible:bg-mauve-400 dark:border-mauveDark-700 dark:hover:border-mauveDark-800 dark:hover:bg-mauveDark-400 dark:focus-visible:border-mauveDark-800 dark:focus-visible:bg-mauveDark-400;
   }
 
   .error-button {
-    @apply inline-block rounded-md border border-red-900 bg-red-900 py-2 px-4 text-center text-mauve-1200 transition-colors duration-200 hover:bg-red-900/80 dark:text-mauveDark-1200;
+    @apply outline-focus-visible inline-block rounded-md border border-red-900 bg-red-900 py-2 px-4 text-center text-mauve-1200 hover:bg-red-900/80 hover:transition-colors hover:duration-200 focus-visible:bg-red-900/80 dark:text-mauveDark-1200;
   }
 
   .dropdown-item {
@@ -40,6 +40,6 @@ html.light {
   }
 
   .outline-focus-visible {
-    @apply focus:outline-none focus-visible:outline-dashed focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-mauve-1200 dark:focus-visible:outline-mauveDark-1200;
+    @apply focus:outline-none focus-visible:outline-dashed focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-mauve-1200 focus-visible:duration-0 dark:focus-visible:outline-mauveDark-1200;
   }
 }
