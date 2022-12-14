@@ -52,7 +52,7 @@ const LinkItemOptions = ({
 
   return (
     <div className='absolute top-4 right-4'>
-      <OptionsDropdown openModal={openModal} slug={slug} />
+      <OptionsDropdown openModal={openModal} />
     </div>
   );
 };
