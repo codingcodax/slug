@@ -44,8 +44,6 @@ const LinkItemOptions = ({
       setDeleteModalData({
         id,
         slug,
-        url,
-        description: description || '',
       });
       setDeleteModalIsOpen(true);
       return;
