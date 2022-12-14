@@ -4,6 +4,8 @@ import { useAtom } from 'jotai';
 
 import { isOpenAtom } from '~/store/createModal';
 import { Dropdown, Icons, Skeleton } from '~/components/ui';
+import { AccountModal } from '~/components/modals';
+import { useState } from 'react';
 
 interface AuthDropdownProps {
   isLoading: boolean;
@@ -11,6 +13,7 @@ interface AuthDropdownProps {
 }
 
 const AuthDropdown = ({ isLoading, username }: AuthDropdownProps) => {
+  const [accountModalIsOpen, setAccountModalIsOpen] = useState(false);
   const [, setIsOpen] = useAtom(isOpenAtom);
 
   return (
@@ -44,10 +47,14 @@ const AuthDropdown = ({ isLoading, username }: AuthDropdownProps) => {
         </Dropdown.Item>
 
         <Dropdown.Item>
-          <Link className='dropdown-item' href='/account'>
+          <button
+            type='button'
+            className='dropdown-item'
+            onClick={() => setAccountModalIsOpen(true)}
+          >
             <Icons.User className='mr-2 h-4 w-4' />
             Account
-          </Link>
+          </button>
         </Dropdown.Item>
 
         <Dropdown.ItemExternalLink href='https://github.com/codingcodax/slug/issues'>
@@ -66,6 +73,11 @@ const AuthDropdown = ({ isLoading, username }: AuthDropdownProps) => {
           </button>
         </Dropdown.Item>
       </Dropdown.Items>
+
+      <AccountModal
+        show={accountModalIsOpen}
+        onClose={() => setAccountModalIsOpen(false)}
+      />
     </Dropdown>
   );
 };
