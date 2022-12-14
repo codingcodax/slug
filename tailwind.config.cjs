@@ -44,6 +44,7 @@ module.exports = {
     },
     extend: {
       fontFamily: { sans: ['var(--font-inter)', ...fontFamily.sans] },
+      transitionDuration: { 0: '0ms' },
     },
   },
   plugins: [require('@headlessui/tailwindcss')],
