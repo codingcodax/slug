@@ -1,8 +1,12 @@
-import { useState } from 'react';
+import { useAtom } from 'jotai';
 
 import type { LinkSchema } from '~/types/link';
-import { EditModal } from '~/components/modals';
-import DeleteModal from '~/components/modals/DeleteModal';
+import {
+  editModalIsOpenAtom,
+  editModalDataAtom,
+  deleteModalIsOpenAtom,
+  deleteModalDataAtom,
+} from '~/store/modals';
 
 import OptionsDropdown from './OptionsDropdown';
 
@@ -19,50 +23,38 @@ const LinkItemOptions = ({
   url,
   description,
 }: LinkItemOptionsProps) => {
-  const [modalsState, setModalsState] = useState({
-    editModal: false,
-    deleteModal: false,
-  });
+  const [, setEditModalIsOpen] = useAtom(editModalIsOpenAtom);
+  const [, setEditModalData] = useAtom(editModalDataAtom);
+  const [, setDeleteModalIsOpen] = useAtom(deleteModalIsOpenAtom);
+  const [, setDeleteModalData] = useAtom(deleteModalDataAtom);
 
-  const handleModal = (modal: 'edit' | 'delete') => {
+  const openModal = (modal: 'edit' | 'delete') => {
     if (modal === 'edit') {
-      setModalsState((prev) => ({ ...prev, editModal: !prev.editModal }));
+      setEditModalData({
+        id,
+        slug,
+        url,
+        description: description || '',
+      });
+      setEditModalIsOpen(true);
       return;
     }
 
     if (modal === 'delete') {
-      setModalsState((prev) => ({ ...prev, deleteModal: !prev.deleteModal }));
+      setDeleteModalData({
+        id,
+        slug,
+        url,
+        description: description || '',
+      });
+      setDeleteModalIsOpen(true);
       return;
     }
   };
 
   return (
     <div className='absolute top-4 right-4'>
-      <OptionsDropdown handleModal={handleModal} slug={slug} />
-
-      {modalsState.editModal && (
-        <EditModal
-          description={description}
-          id={id}
-          show={modalsState.editModal}
-          slug={slug}
-          url={url}
-          onClose={() =>
-            setModalsState((prev) => ({ ...prev, editModal: false }))
-          }
-        />
-      )}
-
-      {modalsState.deleteModal && (
-        <DeleteModal
-          id={id}
-          show={modalsState.deleteModal}
-          slug={slug}
-          onClose={() =>
-            setModalsState((prev) => ({ ...prev, deleteModal: false }))
-          }
-        />
-      )}
+      <OptionsDropdown openModal={openModal} slug={slug} />
     </div>
   );
 };

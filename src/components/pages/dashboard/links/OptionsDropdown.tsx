@@ -4,10 +4,10 @@ import { Dropdown, Icons } from '~/components/ui';
 
 interface OptionsDropdownProps {
   slug: LinkSchema['slug'];
-  handleModal: (modal: 'edit' | 'delete') => void;
+  openModal: (modal: 'edit' | 'delete') => void;
 }
 
-const OptionsDropdown = ({ slug, handleModal }: OptionsDropdownProps) => {
+const OptionsDropdown = ({ slug, openModal }: OptionsDropdownProps) => {
   const copytoclipboard = async (text: string) => {
     try {
       const clipboardItem = new ClipboardItem({
@@ -38,17 +38,14 @@ const OptionsDropdown = ({ slug, handleModal }: OptionsDropdownProps) => {
         </Dropdown.Item>
 
         <Dropdown.Item>
-          <button className='dropdown-item' onClick={() => handleModal('edit')}>
+          <button className='dropdown-item' onClick={() => openModal('edit')}>
             <Icons.FileEdit className='mr-2 h-4 w-4' />
             Edit
           </button>
         </Dropdown.Item>
 
         <Dropdown.Item>
-          <button
-            className='dropdown-item'
-            onClick={() => handleModal('delete')}
-          >
+          <button className='dropdown-item' onClick={() => openModal('delete')}>
             <Icons.Trash2 className='mr-2 h-4 w-4' />
             Delete
           </button>
