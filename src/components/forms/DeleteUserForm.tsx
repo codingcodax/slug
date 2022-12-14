@@ -52,6 +52,7 @@ const DeleteUserForm = ({
             'error-button',
             isDisabled ? 'cursor-not-allowed opacity-40 hover:bg-red-900' : ''
           )}
+          disabled={isDisabled}
           type='submit'
         >
           {isLoading ? 'Deleting your account' : 'Delete your accont'}
